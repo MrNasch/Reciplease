@@ -99,9 +99,10 @@
 		341C327C227200A600ED619E /* Reciplease */ = {
 			isa = PBXGroup;
 			children = (
+				341C32AE227201BD00ED619E /* Model */,
+				341C32AF227201C700ED619E /* View */,
+				341C32B0227201CD00ED619E /* Controller */,
 				341C327D227200A600ED619E /* AppDelegate.swift */,
-				341C327F227200A600ED619E /* ViewController.swift */,
-				341C3281227200A600ED619E /* Main.storyboard */,
 				341C3287227200A800ED619E /* Assets.xcassets */,
 				341C3289227200A800ED619E /* LaunchScreen.storyboard */,
 				341C328C227200A800ED619E /* Info.plist */,
@@ -126,6 +127,29 @@
 				341C32A2227200A800ED619E /* Info.plist */,
 			);
 			path = RecipleaseUITests;
+			sourceTree = "<group>";
+		};
+		341C32AE227201BD00ED619E /* Model */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Model;
+			sourceTree = "<group>";
+		};
+		341C32AF227201C700ED619E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				341C3281227200A600ED619E /* Main.storyboard */,
+			);
+			path = View;
+			sourceTree = "<group>";
+		};
+		341C32B0227201CD00ED619E /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				341C327F227200A600ED619E /* ViewController.swift */,
+			);
+			path = Controller;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
