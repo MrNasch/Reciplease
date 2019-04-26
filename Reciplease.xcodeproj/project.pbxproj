@@ -7,8 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		341AE5002273454C0046535C /* SearchViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341AE4FF2273454C0046535C /* SearchViewController.swift */; };
 		341C327E227200A600ED619E /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C327D227200A600ED619E /* AppDelegate.swift */; };
-		341C3280227200A600ED619E /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341C327F227200A600ED619E /* ViewController.swift */; };
 		341C3283227200A600ED619E /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 341C3281227200A600ED619E /* Main.storyboard */; };
 		341C3286227200A600ED619E /* Reciplease.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = 341C3284227200A600ED619E /* Reciplease.xcdatamodeld */; };
 		341C3288227200A800ED619E /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 341C3287227200A800ED619E /* Assets.xcassets */; };
@@ -37,9 +37,9 @@
 
 /* Begin PBXFileReference section */
 		2D418E3EBABFAA07FDE89843 /* Pods-Reciplease.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-Reciplease.debug.xcconfig"; path = "Target Support Files/Pods-Reciplease/Pods-Reciplease.debug.xcconfig"; sourceTree = "<group>"; };
+		341AE4FF2273454C0046535C /* SearchViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchViewController.swift; sourceTree = "<group>"; };
 		341C327A227200A600ED619E /* Reciplease.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Reciplease.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		341C327D227200A600ED619E /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		341C327F227200A600ED619E /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
 		341C3282227200A600ED619E /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		341C3285227200A600ED619E /* Reciplease.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Reciplease.xcdatamodel; sourceTree = "<group>"; };
 		341C3287227200A800ED619E /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
@@ -162,7 +162,7 @@
 		341C32B0227201CD00ED619E /* Controller */ = {
 			isa = PBXGroup;
 			children = (
-				341C327F227200A600ED619E /* ViewController.swift */,
+				341AE4FF2273454C0046535C /* SearchViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -173,7 +173,6 @@
 				2D418E3EBABFAA07FDE89843 /* Pods-Reciplease.debug.xcconfig */,
 				72231892F82B64B858441343 /* Pods-Reciplease.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -357,8 +356,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				341AE5002273454C0046535C /* SearchViewController.swift in Sources */,
 				341C3286227200A600ED619E /* Reciplease.xcdatamodeld in Sources */,
-				341C3280227200A600ED619E /* ViewController.swift in Sources */,
 				341C327E227200A600ED619E /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
