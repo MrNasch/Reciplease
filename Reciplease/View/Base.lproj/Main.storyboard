@@ -139,7 +139,7 @@
             <objects>
                 <tableViewController id="osW-9L-UDV" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Lhd-5s-VQf">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="813"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <prototypes>
@@ -257,12 +257,12 @@
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sa0-Ci-qpb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1329" y="329"/>
+            <point key="canvasLocation" x="2171" y="311"/>
         </scene>
-        <!--View Controller-->
+        <!--Get Recipes View Controller-->
         <scene sceneID="SUA-Q0-hjq">
             <objects>
-                <viewController id="659-Gg-MJO" sceneMemberID="viewController">
+                <viewController id="659-Gg-MJO" customClass="GetRecipesViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Q7L-xL-GcE">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -295,9 +295,6 @@
                                 <state key="normal" title="Get directions">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="didTapSearchForRecipes:" destination="T0p-fW-LHc" eventType="touchUpInside" id="EE3-kO-jEF"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eN-YA-bb3">
                                 <rect key="frame" x="344" y="20" width="50" height="40"/>
@@ -373,22 +370,22 @@
             </objects>
             <point key="canvasLocation" x="3866.25" y="-401.40845070422534"/>
         </scene>
-        <!--View Controller-->
+        <!--Get Recipes View Controller-->
         <scene sceneID="L3Q-87-Ly7">
             <objects>
-                <viewController id="KSb-N0-APJ" sceneMemberID="viewController">
+                <viewController id="KSb-N0-APJ" customClass="GetRecipesViewController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="59v-9c-vFq">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ews-Fm-Di5">
-                                <rect key="frame" x="0.0" y="44" width="414" height="772"/>
+                                <rect key="frame" x="0.0" y="0.0" width="414" height="645"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="JRt-V7-3BG">
-                                        <rect key="frame" x="0.0" y="0.0" width="414" height="382"/>
+                                        <rect key="frame" x="0.0" y="0.0" width="414" height="318.5"/>
                                     </imageView>
                                     <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xat-L3-hru">
-                                        <rect key="frame" x="0.0" y="390" width="414" height="382"/>
+                                        <rect key="frame" x="0.0" y="326.5" width="414" height="318.5"/>
                                         <string key="text">- Rize
 - Tomatoes
 - Cuman
@@ -400,7 +397,7 @@
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCW-q1-CSa">
-                                <rect key="frame" x="20" y="816" width="374" height="60"/>
+                                <rect key="frame" x="20" y="645" width="374" height="60"/>
                                 <color key="backgroundColor" red="0.13015078359999999" green="0.53116712219999995" blue="0.60514485080000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="60" id="evp-O8-cgD"/>
@@ -409,12 +406,9 @@
                                 <state key="normal" title="Get directions">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
-                                <connections>
-                                    <action selector="didTapSearchForRecipes:" destination="T0p-fW-LHc" eventType="touchUpInside" id="kxg-2H-7cs"/>
-                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nD3-Sd-AgJ">
-                                <rect key="frame" x="344" y="64" width="50" height="40"/>
+                                <rect key="frame" x="344" y="20" width="50" height="40"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="2,5K" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8hz-1y-qJm">
                                         <rect key="frame" x="5" y="5" width="21" height="12"/>
@@ -485,7 +479,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3Y-Wg-UkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="2254" y="329"/>
+            <point key="canvasLocation" x="3058" y="312"/>
         </scene>
         <!--Reciplease-->
         <scene sceneID="OQu-Uw-9oT">
@@ -520,6 +514,9 @@
                                                 <state key="normal" title="Add">
                                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 </state>
+                                                <connections>
+                                                    <action selector="didTapAdd:" destination="T0p-fW-LHc" eventType="touchUpInside" id="4rK-ue-mWM"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <constraints>
@@ -578,6 +575,9 @@
                                         <state key="normal" title="Clear">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="didTapClear:" destination="T0p-fW-LHc" eventType="touchUpInside" id="rRr-vE-dO8"/>
+                                        </connections>
                                     </button>
                                 </subviews>
                                 <constraints>
@@ -630,6 +630,10 @@
                     <navigationItem key="navigationItem" title="Reciplease" id="L8r-f4-ugb">
                         <barButtonItem key="backBarButtonItem" title="Back" id="RPd-aN-bT2"/>
                     </navigationItem>
+                    <connections>
+                        <outlet property="ingredientSearchLabel" destination="NhS-RA-iN9" id="0d2-m6-K5n"/>
+                        <outlet property="ingredientsText" destination="bsM-Xg-bxp" id="Zvq-gA-D23"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="INg-lq-y0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -663,6 +667,34 @@
             </objects>
             <point key="canvasLocation" x="1329" y="-405"/>
         </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="cuc-Xz-5Zt">
+            <objects>
+                <navigationController id="FxI-uE-KKy" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" systemItem="favorites" id="7hZ-Kn-Vda">
+                        <color key="badgeColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    </tabBarItem>
+                    <navigationBar key="navigationBar" opaque="NO" alpha="0.0" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" translucent="NO" id="iCQ-hq-cQL">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <color key="barTintColor" red="0.12976361959999999" green="0.1860134356" blue="0.28624682740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <textAttributes key="titleTextAttributes">
+                            <fontDescription key="fontDescription" name="HelveticaNeue-LightItalic" family="Helvetica Neue" pointSize="25"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                        <textAttributes key="largeTitleTextAttributes">
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </textAttributes>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="osW-9L-UDV" kind="relationship" relationship="rootViewController" id="6Ba-IE-C6U"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="BUS-2i-SxA" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1329" y="311"/>
+        </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="UQ9-fG-Jmz">
             <objects>
@@ -677,7 +709,7 @@
                     </tabBar>
                     <connections>
                         <segue destination="VFN-1H-9fT" kind="relationship" relationship="viewControllers" id="P81-PE-9kR"/>
-                        <segue destination="osW-9L-UDV" kind="relationship" relationship="viewControllers" id="01W-rM-aGJ"/>
+                        <segue destination="FxI-uE-KKy" kind="relationship" relationship="viewControllers" id="mdN-r7-qEW"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="eO4-RA-sOg" userLabel="First Responder" sceneMemberID="firstResponder"/>
