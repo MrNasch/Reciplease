@@ -31,10 +31,18 @@ class SearchViewController: UIViewController {
         ingredientsText.text = " "
     }
     func addIngredients() {
-        if ingredientSearchLabel.text != nil {
-            ingredientsText.text +=  "\n - \(ingredientSearchLabel.text!)"
+        if ingredientSearchLabel.text != "" {
+            ingredientsText.text +=  "\n- \(ingredientSearchLabel.text!)"
         } else {
-            print("no item")
+            alerts(title: "Missing Ingredients", message: "No ingredients added")
         }
+    }
+}
+extension SearchViewController {
+    // alerts
+    func alerts(title: String, message: String) {
+        let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
+        alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
+        self.present(alertVC, animated: true, completion: nil)
     }
 }
