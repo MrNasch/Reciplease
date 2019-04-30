@@ -1,5 +1,5 @@
 //
-//  FavoritesListViewController.swift
+//  DetailRecipeController.swift
 //  Reciplease
 //
 //  Created by Nasch on 28/04/2019.
@@ -8,7 +8,7 @@
 
 import UIKit
 
-class FavoritesListViewController: UIViewController {
+class DetailRecipeController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()

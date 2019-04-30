@@ -8,7 +8,7 @@
 
 import UIKit
 
-class SearchViewController: UIViewController {
+class SearchController: UIViewController {
 
     @IBOutlet weak var ingredientSearchLabel: UITextField!
     @IBOutlet weak var ingredientsText: UITextView!
@@ -38,7 +38,7 @@ class SearchViewController: UIViewController {
         }
     }
 }
-extension SearchViewController {
+extension SearchController {
     // alerts
     func alerts(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
