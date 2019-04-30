@@ -8,23 +8,29 @@
 
 import UIKit
 
-class FavoritesListController: UIViewController {
+class FavoritesListController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        // hidding empty cell
+        tableView.tableFooterView = UIView()
         // Do any additional setup after loading the view.
     }
-    
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+}
+extension FavoritesListController {
+    // number of rows in section
+    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+        // table of recipes.count
+        return 5
     }
-    */
-
+    // get cell
+    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteRecipeCell", for: indexPath) as! FavoriteRecipeCellTableViewCell
+        return cell
+        
+    }
+    // Height of the row
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        return 100
+    }
 }
