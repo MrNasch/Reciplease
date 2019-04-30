@@ -12,6 +12,8 @@ class SearchListController: UITableViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        // hidding empty cell
+        tableView.tableFooterView = UIView()
         // Do any additional setup after loading the view.
     }
 }
@@ -21,12 +23,13 @@ extension SearchListController {
         // table of recipes.count
         return 3
     }
-    // TODO
+    // get cell
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCellTableViewCell
         return cell
         
     }
+    // Height of the row
     override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
