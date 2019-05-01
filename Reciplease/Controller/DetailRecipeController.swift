@@ -10,11 +10,20 @@ import UIKit
 
 class DetailRecipeController: UIViewController {
 
+    @IBOutlet weak var recipeDirections: UITextView!
+    @IBOutlet weak var recipeTime: UILabel!
+    @IBOutlet weak var recipeNote: UILabel!
+    @IBOutlet weak var recipeImage: UIImageView!
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         // Do any additional setup after loading the view.
     }
+    
+    @IBAction func didTapgetDirectionButton(_ sender: UIButton) {
+    }
+    
     
 
     /*

@@ -31,10 +31,13 @@ class SearchController: UIViewController {
         ingredientsText.text = " "
     }
     func addIngredients() {
-        if ingredientSearchLabel.text != "" {
-            ingredientsText.text +=  "\n- \(ingredientSearchLabel.text!)"
-        } else {
+        // Handling Optional
+        guard let ingredientSearchLabel = ingredientSearchLabel.text else { return }
+        
+        if ingredientSearchLabel.isEmpty {
             alerts(title: "Missing Ingredients", message: "No ingredients added")
+        } else {
+            ingredientsText.text +=  "\n- \(ingredientSearchLabel)"
         }
     }
 }

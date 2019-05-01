@@ -272,19 +272,41 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="mn1-6u-KyO">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="645"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="1Np-gO-N2z">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="0J3-Li-QXM">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="318.5"/>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hF4-h2-V4i">
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="1Np-gO-N2z">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="318.5"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="nRf-S5-SSN">
                                         <rect key="frame" x="0.0" y="326.5" width="414" height="318.5"/>
-                                        <string key="text">- Rize
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rr2-Ge-gOv">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="25" id="wmv-wX-vRf"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hF4-h2-V4i">
+                                                <rect key="frame" x="0.0" y="25" width="414" height="293.5"/>
+                                                <string key="text">- Rize
 - Tomatoes
 - Cuman
 - Chicken</string>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="rr2-Ge-gOv" firstAttribute="top" secondItem="nRf-S5-SSN" secondAttribute="top" id="7xX-YR-oSE"/>
+                                        </constraints>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hD5-HJ-a3D">
@@ -297,6 +319,9 @@
                                 <state key="normal" title="Get directions">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapgetDirectionButton:" destination="659-Gg-MJO" eventType="touchUpInside" id="ltv-lk-SAH"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="3eN-YA-bb3">
                                 <rect key="frame" x="344" y="20" width="50" height="40"/>
@@ -367,6 +392,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="zzA-Au-TeL"/>
                     </view>
+                    <connections>
+                        <outlet property="recipeDirections" destination="hF4-h2-V4i" id="Rpu-LA-vxD"/>
+                        <outlet property="recipeImage" destination="1Np-gO-N2z" id="N88-lA-4Up"/>
+                        <outlet property="recipeNote" destination="EpO-Mp-XlV" id="KiO-50-FN0"/>
+                        <outlet property="recipeTime" destination="UJc-wN-abi" id="dRA-qj-4Of"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nra-kn-UEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -383,19 +414,39 @@
                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="Ews-Fm-Di5">
                                 <rect key="frame" x="0.0" y="0.0" width="414" height="645"/>
                                 <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="JRt-V7-3BG">
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="6VO-lr-hvV">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="318.5"/>
-                                    </imageView>
-                                    <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xat-L3-hru">
+                                        <subviews>
+                                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="5" translatesAutoresizingMaskIntoConstraints="NO" id="JRt-V7-3BG">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="318.5"/>
+                                            </imageView>
+                                        </subviews>
+                                    </stackView>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" translatesAutoresizingMaskIntoConstraints="NO" id="F3c-a7-nb3">
                                         <rect key="frame" x="0.0" y="326.5" width="414" height="318.5"/>
-                                        <string key="text">- Rize
+                                        <subviews>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7j-Pz-uGe">
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="25"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="OGj-tG-UmM"/>
+                                                    <constraint firstAttribute="height" constant="25" id="hUm-HL-r3m"/>
+                                                </constraints>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="20"/>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
+                                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xat-L3-hru">
+                                                <rect key="frame" x="0.0" y="25" width="414" height="293.5"/>
+                                                <string key="text">- Rize
 - Tomatoes
 - Cuman
 - Chicken</string>
-                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
-                                        <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
-                                    </textView>
+                                                <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
+                                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                                            </textView>
+                                        </subviews>
+                                    </stackView>
                                 </subviews>
                             </stackView>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="iCW-q1-CSa">
@@ -408,6 +459,9 @@
                                 <state key="normal" title="Get directions">
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
+                                <connections>
+                                    <action selector="didTapgetDirectionButton:" destination="KSb-N0-APJ" eventType="touchUpInside" id="30o-bX-NQg"/>
+                                </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nD3-Sd-AgJ">
                                 <rect key="frame" x="344" y="20" width="50" height="40"/>
@@ -478,6 +532,12 @@
                         </constraints>
                         <viewLayoutGuide key="safeArea" id="Vdm-7C-226"/>
                     </view>
+                    <connections>
+                        <outlet property="recipeDirections" destination="xat-L3-hru" id="n5T-Wx-fI7"/>
+                        <outlet property="recipeImage" destination="JRt-V7-3BG" id="o9c-CZ-XiF"/>
+                        <outlet property="recipeNote" destination="8hz-1y-qJm" id="zke-RB-ZhR"/>
+                        <outlet property="recipeTime" destination="VEo-aX-JZh" id="Y9x-w2-cf3"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3Y-Wg-UkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
