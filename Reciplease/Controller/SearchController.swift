@@ -10,6 +10,8 @@ import UIKit
 
 class SearchController: UIViewController {
 
+    @IBOutlet weak var searchForRecipesBurron: UIButton!
+    @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var ingredientSearchLabel: UITextField!
     @IBOutlet weak var ingredientsText: UITextView!
     @IBAction func didTapClear(_ sender: UIButton) {
@@ -20,6 +22,15 @@ class SearchController: UIViewController {
         ingredientSearchLabel.text = ""
     }
     @IBAction func didTapSearchForRecipes(_ sender: UIButton) {
+        toggleActivityIndicator(shown: true)
+        // TODO shared.recipes { (succes, reicpe) in
+        // self.toggleActivityIndicator(shown: false)
+        // if succes, let recipe = recipe {
+        //    self.update(recipe: recipe)
+        // } else {
+        //    self.alerts(title: "Error", message: "Unable to find recipe")
+        //  }
+        //}
         print("ça marche")
     }
     override func viewDidLoad() {
@@ -42,6 +53,11 @@ class SearchController: UIViewController {
     }
 }
 extension SearchController {
+    // activity indicator
+    private func toggleActivityIndicator(shown: Bool) {
+        searchForRecipesBurron.isHidden = shown
+        activityIndicator.isHidden = !shown
+    }
     // alerts
     func alerts(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)

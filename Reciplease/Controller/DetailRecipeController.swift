@@ -14,6 +14,7 @@ class DetailRecipeController: UIViewController {
     @IBOutlet weak var recipeTime: UILabel!
     @IBOutlet weak var recipeNote: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
+    @IBOutlet weak var recipeTitle: UILabel!
     
     override func viewDidLoad() {
         super.viewDidLoad()

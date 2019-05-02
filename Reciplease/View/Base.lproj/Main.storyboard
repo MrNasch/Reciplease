@@ -397,6 +397,7 @@
                         <outlet property="recipeImage" destination="1Np-gO-N2z" id="N88-lA-4Up"/>
                         <outlet property="recipeNote" destination="EpO-Mp-XlV" id="KiO-50-FN0"/>
                         <outlet property="recipeTime" destination="UJc-wN-abi" id="dRA-qj-4Of"/>
+                        <outlet property="recipeTitle" destination="rr2-Ge-gOv" id="v8Q-hF-FUG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Nra-kn-UEA" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -537,6 +538,7 @@
                         <outlet property="recipeImage" destination="JRt-V7-3BG" id="o9c-CZ-XiF"/>
                         <outlet property="recipeNote" destination="8hz-1y-qJm" id="zke-RB-ZhR"/>
                         <outlet property="recipeTime" destination="VEo-aX-JZh" id="Y9x-w2-cf3"/>
+                        <outlet property="recipeTitle" destination="f7j-Pz-uGe" id="MeR-uE-4FB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3Y-Wg-UkF" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -693,8 +695,10 @@
                         <barButtonItem key="backBarButtonItem" title="Back" id="RPd-aN-bT2"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="activityIndicator" destination="xGZ-yP-HwN" id="bNB-kV-uBn"/>
                         <outlet property="ingredientSearchLabel" destination="NhS-RA-iN9" id="0d2-m6-K5n"/>
                         <outlet property="ingredientsText" destination="bsM-Xg-bxp" id="Zvq-gA-D23"/>
+                        <outlet property="searchForRecipesBurron" destination="iaA-Ib-DHu" id="UFc-2F-Anl"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="INg-lq-y0X" userLabel="First Responder" sceneMemberID="firstResponder"/>
