@@ -21,6 +21,7 @@ extension FavoritesListController {
     // number of rows in section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.numberOfSections <= 0 {
+            // hide tableView and present label TODO
             alerts(title: "ERROR", message: "NO FAV")
             return 0
         } else {
