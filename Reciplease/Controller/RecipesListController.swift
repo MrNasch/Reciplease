@@ -10,6 +10,7 @@ import UIKit
 
 class SearchListController: UITableViewController {
 
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         // hidding empty cell
@@ -22,7 +23,7 @@ extension SearchListController {
     // number of rows in section
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // table of recipes.count
-        return 3
+        return 1
     }
     // TODO
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {

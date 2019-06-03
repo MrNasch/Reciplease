@@ -24,7 +24,7 @@ class SearchController: UIViewController {
     @IBAction func didTapSearchForRecipes(_ sender: UIButton) {
         toggleActivityIndicator(shown: true)
         // TODO shared.recipes { (succes, reicpe) in
-        // self.toggleActivityIndicator(shown: false)
+         self.toggleActivityIndicator(shown: false)
         // if succes, let recipe = recipe {
         //    self.update(recipe: recipe)
         // } else {
