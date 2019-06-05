@@ -19,6 +19,9 @@
 		341FF35A2275D74000788AFE /* FavoritesListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341FF3592275D74000788AFE /* FavoritesListController.swift */; };
 		341FF35C2275D91500788AFE /* DetailRecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341FF35B2275D91500788AFE /* DetailRecipeController.swift */; };
 		3423F75222970E3700B2D19E /* RecipesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423F75122970E3700B2D19E /* RecipesService.swift */; };
+		3426F6E722A5986700C6702F /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3426F6E622A5986700C6702F /* ApiKeys.plist */; };
+		3426F6E922A5990300C6702F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3426F6E822A5990300C6702F /* .gitignore */; };
+		3426F6EB22A5992A00C6702F /* ApiKeys.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3426F6EA22A5992A00C6702F /* ApiKeys.swift */; };
 		34309E0A227AE51200D714EF /* Recipes.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34309E09227AE51200D714EF /* Recipes.swift */; };
 		34312C16227877EE006B4621 /* RecipeCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34312C15227877EE006B4621 /* RecipeCellTableViewCell.swift */; };
 		34312C1822788035006B4621 /* FavoriteRecipeCellTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34312C1722788035006B4621 /* FavoriteRecipeCellTableViewCell.swift */; };
@@ -62,6 +65,9 @@
 		341FF3592275D74000788AFE /* FavoritesListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListController.swift; sourceTree = "<group>"; };
 		341FF35B2275D91500788AFE /* DetailRecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeController.swift; sourceTree = "<group>"; };
 		3423F75122970E3700B2D19E /* RecipesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesService.swift; sourceTree = "<group>"; };
+		3426F6E622A5986700C6702F /* ApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
+		3426F6E822A5990300C6702F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
+		3426F6EA22A5992A00C6702F /* ApiKeys.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApiKeys.swift; sourceTree = "<group>"; };
 		34309E09227AE51200D714EF /* Recipes.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipes.swift; sourceTree = "<group>"; };
 		34312C15227877EE006B4621 /* RecipeCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeCellTableViewCell.swift; sourceTree = "<group>"; };
 		34312C1722788035006B4621 /* FavoriteRecipeCellTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoriteRecipeCellTableViewCell.swift; sourceTree = "<group>"; };
@@ -136,6 +142,9 @@
 				341C3289227200A800ED619E /* LaunchScreen.storyboard */,
 				341C328C227200A800ED619E /* Info.plist */,
 				341C3284227200A600ED619E /* Reciplease.xcdatamodeld */,
+				3426F6E622A5986700C6702F /* ApiKeys.plist */,
+				3426F6E822A5990300C6702F /* .gitignore */,
+				3426F6EA22A5992A00C6702F /* ApiKeys.swift */,
 			);
 			path = Reciplease;
 			sourceTree = "<group>";
@@ -303,7 +312,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3426F6E922A5990300C6702F /* .gitignore in Resources */,
 				341C328B227200A800ED619E /* LaunchScreen.storyboard in Resources */,
+				3426F6E722A5986700C6702F /* ApiKeys.plist in Resources */,
 				341C3288227200A800ED619E /* Assets.xcassets in Resources */,
 				341C3283227200A600ED619E /* Main.storyboard in Resources */,
 			);
@@ -378,6 +389,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				341FF35A2275D74000788AFE /* FavoritesListController.swift in Sources */,
+				3426F6EB22A5992A00C6702F /* ApiKeys.swift in Sources */,
 				341AE5002273454C0046535C /* SearchController.swift in Sources */,
 				341C3286227200A600ED619E /* Reciplease.xcdatamodeld in Sources */,
 				34312C1822788035006B4621 /* FavoriteRecipeCellTableViewCell.swift in Sources */,

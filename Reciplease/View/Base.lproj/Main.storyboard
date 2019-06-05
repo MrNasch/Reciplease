@@ -13,7 +13,7 @@
         <!--Reciplease-->
         <scene sceneID="Jcc-Gu-Tnu">
             <objects>
-                <tableViewController id="HOH-fn-Kax" customClass="SearchListController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController id="HOH-fn-Kax" customClass="RecipesListController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TTS-mX-Pmj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -121,6 +121,10 @@
                                 </tableViewCellContentView>
                                 <color key="backgroundColor" red="0.12976361959999999" green="0.1860134356" blue="0.28624682740000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <connections>
+                                    <outlet property="recipeDesc" destination="YgC-PC-auL" id="gLt-hc-y8e"/>
+                                    <outlet property="recipeImage" destination="dNm-OT-QTB" id="40t-e3-b0R"/>
+                                    <outlet property="recipeTime" destination="rhh-dY-8TI" id="wdw-rJ-moz"/>
+                                    <outlet property="recipeTitle" destination="9De-gV-YUl" id="5ZB-dZ-WHM"/>
                                     <segue destination="659-Gg-MJO" kind="show" id="Lt4-oN-uQt"/>
                                 </connections>
                             </tableViewCell>
@@ -607,7 +611,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapSearchForRecipes:" destination="T0p-fW-LHc" eventType="touchUpInside" id="EsF-ri-aFj"/>
+                                    <action selector="didTapSearchForRecipes:" destination="T0p-fW-LHc" eventType="touchUpInside" id="8nx-0Y-wLr"/>
                                     <segue destination="HOH-fn-Kax" kind="show" id="uA5-lg-Uep"/>
                                 </connections>
                             </button>
@@ -652,10 +656,6 @@
                             </stackView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="bsM-Xg-bxp">
                                 <rect key="frame" x="20" y="146" width="374" height="491"/>
-                                <string key="text">- Rize
-- Tomatoes
-- Cuman
-- Chicken</string>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

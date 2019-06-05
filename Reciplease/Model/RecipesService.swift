@@ -65,21 +65,40 @@ struct FakeNetworkRequest: NetworkRequest {
 }
 
 class NewRecipeService {
+    let apiKey = valueForAPIKey(named: "ApiKey")
+    let apiId = valueForAPIKey(named: "ApiId")
     var networkRequest: NetworkRequest = AlamofireNetworkRequest()
     
     func getRecipes(query: String) {
-        let stringUrl = "test"
-    
-        networkRequest.request(stringUrl) { (<#(Decodable & Encodable)?#>, error) in
-            return
+        var url = "https://api.edamam.com/search?q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&app_id=\(apiId)&app_key=\(apiKey)"
+        //networkRequest.request(url) { (Recipes, error) in
+//            if case .failure(let error) = response.result {
+//                // Dans le cas d'erreur
+//                return completion(nil, error)
+//            }
+//
+//            let statusCode = response.response?.statusCode
+//            
+//            if statusCode == 401 {
+//                return completion(nil, NSError())
+//            }
+//            guard case .success(let result) = response.result else {
+//                //Erreur improbable
+//                return
+//            }
+//            completion(result, nil)
+//            }
         }
     }
-}
+
 // ancienne
 class RecipesServices {
+    
+    let apiKey = valueForAPIKey(named: "ApiKey")
+    let apiId = valueForAPIKey(named: "ApiId")
     //create func that get Recipe from edaman
     func getRecipes(query: String) {
-        let stringUrl = "https://api.edamam.com/search?q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&app_id=9c0ab54b&app_key=a537262bf1833c6d02064b2bbf05e1aa"
+        let stringUrl = "https://api.edamam.com/search?q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&app_id=\(apiId)&app_key=\(apiKey)"
         // API KEY
         AF.request(stringUrl).responseJSON { response in
             print("Request: \(String(describing: response.request))")   // original url request

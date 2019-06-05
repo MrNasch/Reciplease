@@ -9,6 +9,12 @@
 import UIKit
 
 class RecipeCellTableViewCell: UITableViewCell {
+    
+    @IBOutlet weak var recipeImage: UIImageView!
+    @IBOutlet weak var recipeTitle: UILabel!
+    @IBOutlet weak var recipeDesc: UILabel!
+    @IBOutlet weak var recipeTime: UILabel!
+    
 
     override func awakeFromNib() {
         super.awakeFromNib()

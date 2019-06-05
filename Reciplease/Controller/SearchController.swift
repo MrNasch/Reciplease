@@ -14,33 +14,26 @@ class SearchController: UIViewController {
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var ingredientSearchLabel: UITextField!
     @IBOutlet weak var ingredientsText: UITextView!
+    
+    var recipes = RecipesServices()
+    
+    
+    // Clear Ingredients text
+    func clearIngredients() {
+        ingredientsText.text = " "
+    }
     @IBAction func didTapClear(_ sender: UIButton) {
         clearIngredients()
     }
+    // End of clearing Ingredients
+    
+    // add ingredients to the list
     @IBAction func didTapAdd(_ sender: UIButton) {
         addIngredients()
         ingredientSearchLabel.text = ""
     }
-    @IBAction func didTapSearchForRecipes(_ sender: UIButton) {
-        toggleActivityIndicator(shown: true)
-        // TODO shared.recipes { (succes, reicpe) in
-         self.toggleActivityIndicator(shown: false)
-        // if succes, let recipe = recipe {
-        //    self.update(recipe: recipe)
-        // } else {
-        //    self.alerts(title: "Error", message: "Unable to find recipe")
-        //  }
-        //}
-        print("ça marche")
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
-    }
-    func clearIngredients() {
-        ingredientsText.text = " "
-    }
+    
+    // Add ingredients to the search
     func addIngredients() {
         // Handling Optional
         guard let ingredientSearchLabel = ingredientSearchLabel.text else { return }
@@ -50,6 +43,23 @@ class SearchController: UIViewController {
         } else {
             ingredientsText.text +=  "\n- \(ingredientSearchLabel)"
         }
+    }
+    
+    // get recipes from ingredients
+    @IBAction func didTapSearchForRecipes(_ sender: UIButton) {
+        guard let listOfIngredients = ingredientsText.text else { return }
+        let newListOfIngredients = listOfIngredients.replacingOccurrences(of: "\n ", with: " ")
+        toggleActivityIndicator(shown: true)
+        // TODO shared.recipes { (succes, reicpe) in
+         self.toggleActivityIndicator(shown: false)
+        // if succes, let recipe = recipe {
+        //    self.update(recipe: recipe)
+        // } else {
+        //    self.alerts(title: "Error", message: "Unable to find recipe")
+        //  }
+        //}
+        recipes.getRecipes(query: newListOfIngredients)
+        print("ça marche")
     }
 }
 extension SearchController {
