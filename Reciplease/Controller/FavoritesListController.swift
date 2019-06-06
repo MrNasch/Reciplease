@@ -8,18 +8,18 @@
 
 import UIKit
 
-class FavoritesListController: UITableViewController {
+class FavoritesListController: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
         // hidding empty cell
-        tableView.tableFooterView = UIView()
+        //tableView.tableFooterView = UIView()
         // Do any additional setup after loading the view.
     }
 }
 extension FavoritesListController {
     // number of rows in section
-    override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.numberOfSections <= 0 {
             // hide tableView and present label TODO
             alerts(title: "ERROR", message: "NO FAV")
@@ -30,13 +30,13 @@ extension FavoritesListController {
         }
     }
     // get cell
-    override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+    func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "FavoriteRecipeCell", for: indexPath) as! FavoriteRecipeCellTableViewCell
         return cell
         
     }
     // Height of the row
-    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
 }

@@ -50,14 +50,7 @@ class SearchController: UIViewController {
         guard let listOfIngredients = ingredientsText.text else { return }
         let newListOfIngredients = listOfIngredients.replacingOccurrences(of: "\n ", with: " ")
         toggleActivityIndicator(shown: true)
-        // TODO shared.recipes { (succes, reicpe) in
          self.toggleActivityIndicator(shown: false)
-        // if succes, let recipe = recipe {
-        //    self.update(recipe: recipe)
-        // } else {
-        //    self.alerts(title: "Error", message: "Unable to find recipe")
-        //  }
-        //}
         recipes.getRecipes(query: newListOfIngredients)
         print("ça marche")
     }
