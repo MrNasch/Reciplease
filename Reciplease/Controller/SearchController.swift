@@ -9,7 +9,7 @@
 import UIKit
 
 class SearchController: UIViewController {
-
+    
     @IBOutlet weak var searchForRecipesBurron: UIButton!
     @IBOutlet weak var activityIndicator: UIActivityIndicatorView!
     @IBOutlet weak var ingredientSearchLabel: UITextField!
@@ -47,18 +47,22 @@ class SearchController: UIViewController {
     
     // get recipes from ingredients
     @IBAction func didTapSearchForRecipes(_ sender: UIButton) {
-        guard let listOfIngredients = ingredientsText.text else { return }
-        let newListOfIngredients = listOfIngredients.replacingOccurrences(of: "\n ", with: " ")
-        toggleActivityIndicator(shown: true)
-        self.toggleActivityIndicator(shown: false)
-        recipes.getRecipes(query: newListOfIngredients) { recipes, error in
-            if let error = error {
-                print(error)
-                self.alerts(title: "OOPS", message: "Unable to get recipes")
-            } else {
-                //recipesListController.recipe = recipe
-                // presenter ton RecipesListController
-                print(recipes!)
+        if ingredientsText.text.isEmpty {
+            self.alerts(title: "Missing Ingredients", message: "No ingredients added")
+        } else {
+            guard let listOfIngredients = ingredientsText.text else { return }
+            let newListOfIngredients = listOfIngredients.replacingOccurrences(of: "\n ", with: " ")
+            toggleActivityIndicator(shown: true)
+            self.toggleActivityIndicator(shown: false)
+            recipes.getRecipes(query: newListOfIngredients) { recipes, error in
+                if let error = error {
+                    print(error)
+                    self.alerts(title: "OOPS", message: "Unable to get recipes")
+                } else {
+                    //recipesListController.recipe = recipe
+                    // presenter ton RecipesListController
+                    print(recipes!)
+                }
             }
         }
     }

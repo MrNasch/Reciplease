@@ -18,10 +18,10 @@ class RecipesListController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        recipeList.getRecipes(query: "") { (recipes, error) in
-            print(recipes)
-            print(error)
-        }
+//        recipeList.getRecipes(query: "") { (recipes, error) in
+//            print(recipes)
+//            print(error)
+//        }
         // hidding empty cell
         tableView.tableFooterView = UIView()
         tableView.reloadData()
