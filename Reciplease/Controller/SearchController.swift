@@ -50,9 +50,17 @@ class SearchController: UIViewController {
         guard let listOfIngredients = ingredientsText.text else { return }
         let newListOfIngredients = listOfIngredients.replacingOccurrences(of: "\n ", with: " ")
         toggleActivityIndicator(shown: true)
-         self.toggleActivityIndicator(shown: false)
-        recipes.getRecipes(query: newListOfIngredients)
-        print("ça marche")
+        self.toggleActivityIndicator(shown: false)
+        recipes.getRecipes(query: newListOfIngredients) { recipes, error in
+            if let error = error {
+                print(error)
+                self.alerts(title: "OOPS", message: "Unable to get recipes")
+            } else {
+                //recipesListController.recipe = recipe
+                // presenter ton RecipesListController
+                print(recipes!)
+            }
+        }
     }
 }
 extension SearchController {

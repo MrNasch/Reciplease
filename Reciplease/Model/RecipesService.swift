@@ -71,14 +71,7 @@ class NewRecipeService {
     
     func getRecipes(query: String, completion: @escaping (Recipes?, Error?) -> Void) {
         let url = "https://api.edamam.com/search?q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&app_id=\(apiId)&app_key=\(apiKey)"
-        networkRequest.request(url) { (recipes: Recipes?, error: Error?) in
-            if let error = error {
-                completion(nil, error)
-            } else {
-                completion(recipes, nil)
-            }
-
-        }
+        networkRequest.request(url, completion: completion)
     }
 }
 
