@@ -17,7 +17,7 @@ class FavoritesListController: UIViewController {
         // Do any additional setup after loading the view.
     }
 }
-extension FavoritesListController {
+extension FavoritesListController: UITableViewDataSource {
     // number of rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         if tableView.numberOfSections <= 0 {
@@ -39,6 +39,9 @@ extension FavoritesListController {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+}
+extension FavoritesListController: UITableViewDelegate {
+    
 }
 extension FavoritesListController {
     // alerts

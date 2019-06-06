@@ -15,7 +15,7 @@ class SearchController: UIViewController {
     @IBOutlet weak var ingredientSearchLabel: UITextField!
     @IBOutlet weak var ingredientsText: UITextView!
     
-    var recipes = RecipesServices()
+    var recipes = NewRecipeService()
     
     
     // Clear Ingredients text

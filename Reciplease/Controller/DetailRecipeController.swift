@@ -18,14 +18,24 @@ class DetailRecipeController: UIViewController {
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeTitle: UILabel!
     
-    private let recipesService = RecipesServices()
-    
+    var recipes: Recipe?
+    var recipesServices = NewRecipeService()
     override func viewDidLoad() {
         super.viewDidLoad()
         // Do any additional setup after loading the view.
     }
     
+    func update() {
+        guard let recipes = recipes else { return }
+        recipeTitle.text = recipes.label
+        let ingredient = recipes.ingredientLines[0]
+        recipeDirections.text = ingredient
+        recipeTime.text = String(recipes.totalTime)
+        //recipeImage.image = recipes.image
+    }
+    
+    
     @IBAction func didTapgetDirectionButton(_ sender: UIButton) {
-        recipesService.getRecipes(query: "chicken")
+        UIApplication.shared.open(URL(string: "\(String(describing: recipes?.url))")!)
     }
 }

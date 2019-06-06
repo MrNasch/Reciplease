@@ -9,24 +9,23 @@
 import UIKit
 
 class RecipesListController: UIViewController {
+    
+    @IBOutlet var tableView: UITableView!
+    
     var recipe = RecipeCellTableViewCell()
-    var recipes: Recipes?
-    var recipeList = RecipesServices()
+    var recipeList = NewRecipeService()
+    var recipes = [Recipe]()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
-        showRecipesList()
+        recipeList.getRecipes(query: "") { (recipes, error) in
+            print(recipes)
+            print(error)
+        }
         // hidding empty cell
-        //tableView.tableFooterView = UIView()
+        tableView.tableFooterView = UIView()
+        tableView.reloadData()
         // Do any additional setup after loading the view.
-        
-    }
-    func showRecipesList() {
-        guard let recipes = recipes else { return }
-        //recipe.recipeImage.image = URL(fileURLWithPath: recipes.hits[0].recipe.image)
-        recipe.recipeTitle.text = recipes.hits[0].recipe.label
-        let ingredient = recipes.hits[0].recipe.ingredientLines[1]
-        recipe.recipeDesc.text = ingredient
-        recipe.recipeTime.text = String(recipes.hits[0].recipe.totalTime)
     }
 }
 extension RecipesListController: UITableViewDataSource {
@@ -34,22 +33,30 @@ extension RecipesListController: UITableViewDataSource {
     // number of rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // table of recipes.count
-        if let recipes = recipes {
-            return recipes.count.distance(to: 10)
-        } else {
-            alerts(title: "Error", message: "No recipes Found")
-            return 0
-        }
+        //if let recipes = recipes {
+            return recipes.count.distance(to: 5)
+//        } else {
+//            alerts(title: "Error", message: "No recipes Found")
+//            return 1
+//        }
     }
     // TODO
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCellTableViewCell
+        //cell.recipeTitle.text = recipes[indexPath.row].label
         return cell
         
     }
     // Height of the row
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
+    }
+}
+
+//Delegate Table
+extension RecipesListController: UITableViewDelegate {
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        //performSegue(withIdentifier: "segueToRecipeDetail", sender: self)
     }
 }
 extension RecipesListController {

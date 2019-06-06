@@ -135,6 +135,9 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" title="Reciplease" id="sgm-IL-frF"/>
+                    <connections>
+                        <outlet property="tableView" destination="TTS-mX-Pmj" id="8PR-ms-Rib"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLB-gx-MLG" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

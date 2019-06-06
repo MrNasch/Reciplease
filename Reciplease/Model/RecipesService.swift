@@ -69,64 +69,17 @@ class NewRecipeService {
     let apiId = valueForAPIKey(named: "ApiId")
     var networkRequest: NetworkRequest = AlamofireNetworkRequest()
     
-    func getRecipes(query: String) {
-        var url = "https://api.edamam.com/search?q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&app_id=\(apiId)&app_key=\(apiKey)"
-        //networkRequest.request(url) { (Recipes, error) in
-//            if case .failure(let error) = response.result {
-//                // Dans le cas d'erreur
-//                return completion(nil, error)
-//            }
-//
-//            let statusCode = response.response?.statusCode
-//            
-//            if statusCode == 401 {
-//                return completion(nil, NSError())
-//            }
-//            guard case .success(let result) = response.result else {
-//                //Erreur improbable
-//                return
-//            }
-//            completion(result, nil)
-//            }
-        }
-    }
+    func getRecipes(query: String, completion: @escaping (Recipes?, Error?) -> Void) {
+        let url = "https://api.edamam.com/search?q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&app_id=\(apiId)&app_key=\(apiKey)"
+        networkRequest.request(url) { (recipes: Recipes?, error: Error?) in
+            if let error = error {
+                completion(nil, error)
+            } else {
+                completion(recipes, nil)
+            }
 
-// ancienne
-class RecipesServices {
-    
-    let apiKey = valueForAPIKey(named: "ApiKey")
-    let apiId = valueForAPIKey(named: "ApiId")
-    //create func that get Recipe from edaman
-    func getRecipes(query: String) {
-        let stringUrl = "https://api.edamam.com/search?q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&app_id=\(apiId)&app_key=\(apiKey)"
-        // API KEY
-        AF.request(stringUrl).responseJSON { response in
-            print("Request: \(String(describing: response.request))")   // original url request
-            print("Response: \(String(describing: response.response))") // http url response
-            print("Result: \(response.result)")                         // response serialization result
-            let statusCode = response.response?.statusCode
-            
-            if case .failure(let error) = response.result {
-                // Dans le cas d'erreur
-            }
-            
-            guard case .success = response.result else {
-                //Erreur improbable
-                return
-            }
-            
-            
-//
-//            switch response.result {
-//            case .success:
-//                print("Validation Successful")
-//            case .failure(let error):
-//                print(error)
-//            }
-            
-            if let data = response.data, let utf8Text = String(data: data, encoding: .utf8) {
-                print("Data: \(utf8Text)") // original server data as UTF8 string
-            }
         }
     }
 }
+
+
