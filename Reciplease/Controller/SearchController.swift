@@ -15,8 +15,9 @@ class SearchController: UIViewController {
     @IBOutlet weak var ingredientSearchLabel: UITextField!
     @IBOutlet weak var ingredientsText: UITextView!
     
-    var recipes = NewRecipeService()
-    
+    var recipe = NewRecipeService()
+    var recipesListController = RecipesListController()
+    var recipes: Recipes!
     
     // Clear Ingredients text
     func clearIngredients() {
@@ -54,20 +55,25 @@ class SearchController: UIViewController {
             let newListOfIngredients = listOfIngredients.replacingOccurrences(of: "\n ", with: " ")
             toggleActivityIndicator(shown: true)
             self.toggleActivityIndicator(shown: false)
-            recipes.getRecipes(query: newListOfIngredients) { recipes, error in
+            recipe.getRecipes(query: newListOfIngredients) { recipes, error in
                 if let error = error {
                     print(error)
                     self.alerts(title: "OOPS", message: "Unable to get recipes")
                 } else {
-                    //recipesListController.recipe = recipe
-                    // presenter ton RecipesListController
-                    print(recipes!)
+                    self.recipes = recipes
+                    self.performSegue(withIdentifier: "segueToRecipeList", sender: nil)
                 }
             }
         }
     }
 }
 extension SearchController {
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "segueToRecipeList" {
+            let recipesVC = segue.destination as! RecipesListController
+            recipesVC.recipes = recipes
+        }
+    }
     // activity indicator
     private func toggleActivityIndicator(shown: Bool) {
         searchForRecipesBurron.isHidden = shown

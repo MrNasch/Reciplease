@@ -13,7 +13,7 @@
         <!--Reciplease-->
         <scene sceneID="Jcc-Gu-Tnu">
             <objects>
-                <tableViewController id="HOH-fn-Kax" customClass="RecipesListController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                <tableViewController storyboardIdentifier="recipesList" id="HOH-fn-Kax" customClass="RecipesListController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="TTS-mX-Pmj">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -614,8 +614,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapSearchForRecipes:" destination="T0p-fW-LHc" eventType="touchUpInside" id="8nx-0Y-wLr"/>
-                                    <segue destination="HOH-fn-Kax" kind="show" id="uA5-lg-Uep"/>
+                                    <action selector="didTapSearchForRecipes:" destination="T0p-fW-LHc" eventType="touchUpInside" id="RiU-ga-LMV"/>
                                 </connections>
                             </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="What's in your fridge ?" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="I1x-zF-DiZ">
@@ -702,6 +701,7 @@
                         <outlet property="ingredientSearchLabel" destination="NhS-RA-iN9" id="0d2-m6-K5n"/>
                         <outlet property="ingredientsText" destination="bsM-Xg-bxp" id="Zvq-gA-D23"/>
                         <outlet property="searchForRecipesBurron" destination="iaA-Ib-DHu" id="UFc-2F-Anl"/>
+                        <segue destination="HOH-fn-Kax" kind="show" identifier="segueToRecipeList" id="A5s-Kp-51i"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="INg-lq-y0X" userLabel="First Responder" sceneMemberID="firstResponder"/>

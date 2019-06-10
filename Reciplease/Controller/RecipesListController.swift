@@ -12,38 +12,35 @@ class RecipesListController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    var recipe = RecipeCellTableViewCell()
-    var recipeList = NewRecipeService()
-    var recipes = [Recipe]()
+    private let recipeService = NewRecipeService()
+    
+    var recipes: Recipes!
+    var recipesList = [Recipe]()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-//        recipeList.getRecipes(query: "") { (recipes, error) in
-//            print(recipes)
-//            print(error)
-//        }
-        // hidding empty cell
-        tableView.tableFooterView = UIView()
+    }
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         tableView.reloadData()
-        // Do any additional setup after loading the view.
     }
 }
-extension RecipesListController: UITableViewDataSource {
-    
+extension RecipesListController: UITableViewDataSource, UITableViewDelegate {
+    // number of section
+    func numberOfSections(in tableView: UITableView) -> Int {
+        return 1
+    }
     // number of rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // table of recipes.count
-        //if let recipes = recipes {
-            return recipes.count.distance(to: 5)
-//        } else {
-//            alerts(title: "Error", message: "No recipes Found")
-//            return 1
-//        }
+            return recipes.count
     }
     // TODO
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCellTableViewCell
-        //cell.recipeTitle.text = recipes[indexPath.row].label
+        print(recipes.count)
+        print(recipes!)
         return cell
         
     }
@@ -53,12 +50,6 @@ extension RecipesListController: UITableViewDataSource {
     }
 }
 
-//Delegate Table
-extension RecipesListController: UITableViewDelegate {
-    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        //performSegue(withIdentifier: "segueToRecipeDetail", sender: self)
-    }
-}
 extension RecipesListController {
     // alerts
     func alerts(title: String, message: String) {
