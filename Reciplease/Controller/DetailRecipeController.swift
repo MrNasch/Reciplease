@@ -14,7 +14,6 @@ class DetailRecipeController: UIViewController {
 
     @IBOutlet weak var recipeDirections: UITextView!
     @IBOutlet weak var recipeTime: UILabel!
-    @IBOutlet weak var recipeNote: UILabel! // EFFACER
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeTitle: UILabel!
     

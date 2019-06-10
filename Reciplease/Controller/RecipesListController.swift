@@ -12,10 +12,7 @@ class RecipesListController: UIViewController {
     
     @IBOutlet var tableView: UITableView!
     
-    private let recipeService = NewRecipeService()
-    
     var recipes: Recipes!
-    var recipesList = [Recipe]()
     
     
     override func viewDidLoad() {
@@ -39,8 +36,17 @@ extension RecipesListController: UITableViewDataSource, UITableViewDelegate {
     // TODO
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCellTableViewCell
+        cell.recipeTitle.text = recipes.hits[0].recipe.label
+        cell.recipeTime.text = String(recipes.hits[0].recipe.totalTime)
+        cell.recipeDesc.text = recipes.hits[0].recipe.ingredientLines[0]
+        let imageUrlString = "\(recipes.hits[0].recipe.image)"
+        let imageUrl = URL(string: imageUrlString)!
+        let imageData = try! Data(contentsOf: imageUrl)
+        let image = UIImage(data: imageData)
+        cell.recipeImage.image = image
+        //cell.recipeImage.image = recipes.hits[0].recipe.image.toImage()
         print(recipes.count)
-        print(recipes!)
+        //print(recipes!)
         return cell
         
     }
@@ -56,5 +62,13 @@ extension RecipesListController {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)
+    }
+}
+extension String {
+    func toImage() -> UIImage? {
+        if let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters){
+            return UIImage(data: data)
+        }
+        return nil
     }
 }
