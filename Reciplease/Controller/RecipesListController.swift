@@ -13,14 +13,8 @@ class RecipesListController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     var recipes: Recipes!
-    
-    
     override func viewDidLoad() {
         super.viewDidLoad()
-    }
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        tableView.reloadData()
     }
 }
 extension RecipesListController: UITableViewDataSource, UITableViewDelegate {
@@ -46,7 +40,6 @@ extension RecipesListController: UITableViewDataSource, UITableViewDelegate {
         cell.recipeImage.image = image
         //cell.recipeImage.image = recipes.hits[0].recipe.image.toImage()
         print(recipes.count)
-        //print(recipes!)
         return cell
         
     }
