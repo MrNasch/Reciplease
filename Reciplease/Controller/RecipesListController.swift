@@ -13,6 +13,8 @@ class RecipesListController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     var recipes: Recipes!
+    
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -25,21 +27,22 @@ extension RecipesListController: UITableViewDataSource, UITableViewDelegate {
     // number of rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         // table of recipes.count
-            return recipes.count
+            return recipes.hits.count
     }
-    // TODO
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCellTableViewCell
-        cell.recipeTitle.text = recipes.hits[0].recipe.label
-        cell.recipeTime.text = String(recipes.hits[0].recipe.totalTime)
-        cell.recipeDesc.text = recipes.hits[0].recipe.ingredientLines[0]
-        let imageUrlString = "\(recipes.hits[0].recipe.image)"
+        
+        let recipe = recipes.hits[indexPath.row]
+
+        cell.recipeTitle.text = recipe.recipe.label
+        cell.recipeTime.text = String(recipe.recipe.totalTime)
+        cell.recipeDesc.text = recipe.recipe.ingredientLines[0]
+        let imageUrlString = "\(recipe.recipe.image)"
         let imageUrl = URL(string: imageUrlString)!
         let imageData = try! Data(contentsOf: imageUrl)
         let image = UIImage(data: imageData)
         cell.recipeImage.image = image
-        //cell.recipeImage.image = recipes.hits[0].recipe.image.toImage()
-        print(recipes.count)
+        
         return cell
         
     }
