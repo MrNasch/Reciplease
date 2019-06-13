@@ -16,7 +16,6 @@ class SearchController: UIViewController {
     @IBOutlet weak var ingredientsText: UITextView!
     
     var recipe = NewRecipeService()
-    var recipesListController = RecipesListController()
     var recipes: Recipes!
     
     // Clear Ingredients text
@@ -68,6 +67,7 @@ class SearchController: UIViewController {
     }
 }
 extension SearchController {
+    // Segue to RecipeList
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToRecipeList" {
             let recipesVC = segue.destination as! RecipesListController

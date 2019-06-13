@@ -103,7 +103,6 @@
                                     <outlet property="recipeImage" destination="dNm-OT-QTB" id="40t-e3-b0R"/>
                                     <outlet property="recipeTime" destination="rhh-dY-8TI" id="wdw-rJ-moz"/>
                                     <outlet property="recipeTitle" destination="9De-gV-YUl" id="5ZB-dZ-WHM"/>
-                                    <segue destination="659-Gg-MJO" kind="show" id="Lt4-oN-uQt"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -115,6 +114,7 @@
                     <navigationItem key="navigationItem" title="Reciplease" id="sgm-IL-frF"/>
                     <connections>
                         <outlet property="tableView" destination="TTS-mX-Pmj" id="8PR-ms-Rib"/>
+                        <segue destination="659-Gg-MJO" kind="show" identifier="recipeToDetail" id="PVg-Qe-muf"/>
                     </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="gLB-gx-MLG" userLabel="First Responder" sceneMemberID="firstResponder"/>

@@ -13,8 +13,11 @@ class RecipesListController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     var recipes: Recipes!
-    
-    
+    // reload tableViewData
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        tableView.reloadData()
+    }
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -29,8 +32,11 @@ extension RecipesListController: UITableViewDataSource, UITableViewDelegate {
         // table of recipes.count
             return recipes.hits.count
     }
+    // data in cell
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as! RecipeCellTableViewCell
+        guard let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeCellTableViewCell else {
+            return UITableViewCell()
+        }
         
         let recipe = recipes.hits[indexPath.row]
 
@@ -50,9 +56,20 @@ extension RecipesListController: UITableViewDataSource, UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    // segue to detail with selectedRow
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        self.performSegue(withIdentifier: "recipeToDetail", sender: nil)
+    }
 }
 
 extension RecipesListController {
+    // prepare for segue
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "recipeToDetail" {
+            let recipesDetailVC = segue.destination as! DetailRecipeController
+            recipesDetailVC.recipeDetail = recipes
+        }
+    }
     // alerts
     func alerts(title: String, message: String) {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
@@ -60,6 +77,7 @@ extension RecipesListController {
         self.present(alertVC, animated: true, completion: nil)
     }
 }
+// convert String to Image
 extension String {
     func toImage() -> UIImage? {
         if let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters){
