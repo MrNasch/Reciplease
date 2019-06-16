@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import Alamofire
 
 class RecipesListController: UIViewController {
     
@@ -37,28 +38,39 @@ extension RecipesListController: UITableViewDataSource, UITableViewDelegate {
         guard let cell = tableView.dequeueReusableCell(withIdentifier: "recipeCell", for: indexPath) as? RecipeCellTableViewCell else {
             return UITableViewCell()
         }
-        
+        // Create recipe at the index
         let recipe = recipes.hits[indexPath.row]
 
         cell.recipeTitle.text = recipe.recipe.label
         cell.recipeTime.text = String(recipe.recipe.totalTime)
         cell.recipeDesc.text = recipe.recipe.ingredientLines[0]
+        
+        // Download Recipe Image
         let imageUrlString = "\(recipe.recipe.image)"
         let imageUrl = URL(string: imageUrlString)!
-        let imageData = try! Data(contentsOf: imageUrl)
-        let image = UIImage(data: imageData)
-        cell.recipeImage.image = image
-        
+        AF.request(imageUrl).responseData { (response) in
+            if response.error == nil {
+                print(response.result)
+                
+                if let data = response.data {
+                    cell.recipeImage.image = UIImage(data: data)
+                }
+            } else {
+                self.alerts(title: "Oops", message: "Unable to show the recipe image")
+            }
+        }
         return cell
-        
     }
+    
     // Height of the row
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 100
     }
+    
     // segue to detail with selectedRow
     func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        self.performSegue(withIdentifier: "recipeToDetail", sender: nil)
+        let recipe = recipes.hits[indexPath.row]
+        self.performSegue(withIdentifier: "recipeToDetail", sender: recipe)
     }
 }
 
@@ -67,7 +79,7 @@ extension RecipesListController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "recipeToDetail" {
             let recipesDetailVC = segue.destination as! DetailRecipeController
-            recipesDetailVC.recipeDetail = recipes
+            recipesDetailVC.recipeDetail = sender as? Hit
         }
     }
     // alerts

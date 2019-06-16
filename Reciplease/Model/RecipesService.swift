@@ -68,9 +68,9 @@ class NewRecipeService {
     let apiKey = valueForAPIKey(named: "ApiKey")
     let apiId = valueForAPIKey(named: "ApiId")
     var networkRequest: NetworkRequest = AlamofireNetworkRequest()
-    
+    // TO 30
     func getRecipes(query: String, completion: @escaping (Recipes?, Error?) -> Void) {
-        let url = "https://api.edamam.com/search?q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&app_id=\(apiId)&app_key=\(apiKey)"
+        let url = "https://api.edamam.com/search?q=\(query.addingPercentEncoding(withAllowedCharacters: .urlQueryAllowed) ?? "")&app_id=\(apiId)&app_key=\(apiKey)&to=30"
         networkRequest.request(url, completion: completion)
     }
 }

@@ -17,7 +17,7 @@ class DetailRecipeController: UIViewController {
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeTitle: UILabel!
     
-    var recipeDetail: Recipes!
+    var recipeDetail: Hit!
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -27,7 +27,7 @@ class DetailRecipeController: UIViewController {
     // update screen infos
     func update() {
         guard let recipeDetail = recipeDetail else { return }
-        recipeTitle.text = recipeDetail.hits[0].recipe.label
+        recipeTitle.text = recipeDetail.recipe.label
 //        let ingredient = recipes.ingredientLines[0]
 //        recipeDirections.text = ingredient
 //        recipeTime.text = String(recipes.totalTime)
@@ -36,6 +36,8 @@ class DetailRecipeController: UIViewController {
     
     // sending user to Direction URL
     @IBAction func didTapgetDirectionButton(_ sender: UIButton) {
-        UIApplication.shared.open(URL(string: "\(String(describing: recipeDetail.hits[0].recipe.url))")!)
+        UIApplication.shared.open(URL(string: "\(String(describing: recipeDetail.recipe.url))")!)
     }
+    
+// Item bar
 }
