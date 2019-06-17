@@ -247,20 +247,16 @@
                                         <rect key="frame" x="0.0" y="326.5" width="414" height="318.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rr2-Ge-gOv">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" constant="25" id="wmv-wX-vRf"/>
+                                                    <constraint firstAttribute="height" constant="50" id="wmv-wX-vRf"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="hF4-h2-V4i">
-                                                <rect key="frame" x="0.0" y="25" width="414" height="293.5"/>
-                                                <string key="text">- Rize
-- Tomatoes
-- Cuman
-- Chicken</string>
+                                                <rect key="frame" x="0.0" y="50" width="414" height="268.5"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
@@ -367,21 +363,16 @@
                                         <rect key="frame" x="0.0" y="326.5" width="414" height="318.5"/>
                                         <subviews>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f7j-Pz-uGe">
-                                                <rect key="frame" x="0.0" y="0.0" width="414" height="25"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="414" height="50"/>
                                                 <constraints>
-                                                    <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="25" id="OGj-tG-UmM"/>
-                                                    <constraint firstAttribute="height" constant="25" id="hUm-HL-r3m"/>
+                                                    <constraint firstAttribute="height" constant="50" id="hUm-HL-r3m"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-BoldItalic" family="Helvetica Neue" pointSize="20"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <nil key="highlightedColor"/>
                                             </label>
                                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" editable="NO" textAlignment="natural" translatesAutoresizingMaskIntoConstraints="NO" id="xat-L3-hru">
-                                                <rect key="frame" x="0.0" y="25" width="414" height="293.5"/>
-                                                <string key="text">- Rize
-- Tomatoes
-- Cuman
-- Chicken</string>
+                                                <rect key="frame" x="0.0" y="50" width="414" height="268.5"/>
                                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                                 <fontDescription key="fontDescription" name="HelveticaNeue-Light" family="Helvetica Neue" pointSize="18"/>
                                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>

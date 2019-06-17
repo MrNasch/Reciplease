@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import Kingfisher
 
 class RecipesListController: UIViewController {
     
@@ -44,21 +45,9 @@ extension RecipesListController: UITableViewDataSource, UITableViewDelegate {
         cell.recipeTitle.text = recipe.recipe.label
         cell.recipeTime.text = String(recipe.recipe.totalTime)
         cell.recipeDesc.text = recipe.recipe.ingredientLines[0]
-        
-        // Download Recipe Image
-        let imageUrlString = "\(recipe.recipe.image)"
-        let imageUrl = URL(string: imageUrlString)!
-        AF.request(imageUrl).responseData { (response) in
-            if response.error == nil {
-                print(response.result)
-                
-                if let data = response.data {
-                    cell.recipeImage.image = UIImage(data: data)
-                }
-            } else {
-                self.alerts(title: "Oops", message: "Unable to show the recipe image")
-            }
-        }
+        let url = URL(string: "\(recipe.recipe.image)")
+        cell.recipeImage.kf.indicatorType = .activity
+        cell.recipeImage.kf.setImage(with: url)
         return cell
     }
     
@@ -87,14 +76,5 @@ extension RecipesListController {
         let alertVC = UIAlertController(title: title, message: message, preferredStyle: .alert)
         alertVC.addAction(UIAlertAction(title: "OK", style: .cancel, handler: nil))
         self.present(alertVC, animated: true, completion: nil)
-    }
-}
-// convert String to Image
-extension String {
-    func toImage() -> UIImage? {
-        if let data = Data(base64Encoded: self, options: .ignoreUnknownCharacters){
-            return UIImage(data: data)
-        }
-        return nil
     }
 }

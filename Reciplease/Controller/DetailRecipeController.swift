@@ -8,7 +8,7 @@
 
 import UIKit
 import Alamofire
-
+import Kingfisher
 
 class DetailRecipeController: UIViewController {
 
@@ -28,10 +28,12 @@ class DetailRecipeController: UIViewController {
     func update() {
         guard let recipeDetail = recipeDetail else { return }
         recipeTitle.text = recipeDetail.recipe.label
-//        let ingredient = recipes.ingredientLines[0]
-//        recipeDirections.text = ingredient
-//        recipeTime.text = String(recipes.totalTime)
-        //recipeImage.image = recipes.image
+        for ingredient in recipeDetail.recipe.ingredientLines {
+            recipeDirections.text += "\n- \(ingredient)"
+        }
+        recipeTime.text = String(recipeDetail.recipe.totalTime)
+        let url = URL(string: "\(recipeDetail.recipe.image)")
+        recipeImage.kf.setImage(with: url)
     }
     
     // sending user to Direction URL
