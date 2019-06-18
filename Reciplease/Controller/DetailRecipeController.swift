@@ -18,10 +18,12 @@ class DetailRecipeController: UIViewController {
     @IBOutlet weak var recipeTitle: UILabel!
     
     var recipeDetail: Hit!
+    var isFavorite: Bool = false
+    let favButton = UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(favTapped))
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        navigationItem.rightBarButtonItem = favButton
         update()
     }
     // update screen infos
@@ -41,5 +43,22 @@ class DetailRecipeController: UIViewController {
         UIApplication.shared.open(URL(string: "\(String(describing: recipeDetail.recipe.url))")!)
     }
     
-// Item bar
+    // Tapped fav button
+    @objc func favTapped() {
+        if isFavorite {
+            favButton.title = "Remove from favorite"
+        } else {
+            
+        }
+    }
+    
+    // Add recipe to Favorite
+    func addToFav() {
+        
+    }
+    
+    // Remove recipe from favorite
+    func removeFromFav() {
+        
+    }
 }

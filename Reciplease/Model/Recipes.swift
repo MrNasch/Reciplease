@@ -16,6 +16,7 @@
 import Foundation
 import Alamofire
 
+
 // MARK: - Recipes
 struct Recipes: Codable {
     let q: String
