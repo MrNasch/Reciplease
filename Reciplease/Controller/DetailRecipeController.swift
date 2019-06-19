@@ -17,6 +17,7 @@ class DetailRecipeController: UIViewController {
     @IBOutlet weak var recipeImage: UIImageView!
     @IBOutlet weak var recipeTitle: UILabel!
     
+    var storage = RecipeStorageManager()
     var recipeDetail: Hit!
     var isFavorite: Bool = false
     let favButton = UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(favTapped))
@@ -36,6 +37,7 @@ class DetailRecipeController: UIViewController {
         recipeTime.text = String(recipeDetail.recipe.totalTime)
         let url = URL(string: "\(recipeDetail.recipe.image)")
         recipeImage.kf.setImage(with: url)
+        addToFav()
     }
     
     // sending user to Direction URL
@@ -45,16 +47,21 @@ class DetailRecipeController: UIViewController {
     
     // Tapped fav button
     @objc func favTapped() {
-        if isFavorite {
-            favButton.title = "Remove from favorite"
-        } else {
-            
-        }
+        addToFav()
+        //        if isFavorite {
+//            favButton.title = "Remove from favorite"
+//        } else {
+//            addToFav()
+//        }
     }
     
     // Add recipe to Favorite
     func addToFav() {
-        
+        _ = storage.insertRecipe(label: recipeDetail.recipe.label, url: recipeDetail.recipe.url,
+                             image: recipeDetail.recipe.image, ingredientLines: recipeDirections.text, totalTime: recipeDetail.recipe.totalTime)
+        print("added fav")
+
+        storage.save()
     }
     
     // Remove recipe from favorite

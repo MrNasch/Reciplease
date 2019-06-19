@@ -208,7 +208,10 @@
                                     </constraints>
                                 </tableViewCellContentView>
                                 <connections>
-                                    <segue destination="KSb-N0-APJ" kind="show" id="uXT-dx-nqB"/>
+                                    <outlet property="recipeDescription" destination="Gdw-Lw-9SB" id="wO9-h4-V7v"/>
+                                    <outlet property="recipeFavImage" destination="DEE-R1-d4Y" id="eEG-7e-juB"/>
+                                    <outlet property="recipeFavTime" destination="Jsi-IW-5R8" id="RFm-tH-o3V"/>
+                                    <outlet property="recipeLabel" destination="8sm-qE-TzO" id="fKh-X1-CKW"/>
                                 </connections>
                             </tableViewCell>
                         </prototypes>
@@ -219,6 +222,10 @@
                     </tableView>
                     <tabBarItem key="tabBarItem" systemItem="favorites" id="imk-sT-BPX"/>
                     <navigationItem key="navigationItem" title="Reciplease" id="C89-Ng-Xp7"/>
+                    <connections>
+                        <outlet property="tableView" destination="Lhd-5s-VQf" id="Kx3-DQ-DHe"/>
+                        <segue destination="KSb-N0-APJ" kind="show" identifier="recipeFavDetail" id="06O-Nf-7Mw"/>
+                    </connections>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Sa0-Ci-qpb" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -340,10 +347,10 @@
             </objects>
             <point key="canvasLocation" x="3866.25" y="-401.40845070422534"/>
         </scene>
-        <!--Detail Recipe Controller-->
+        <!--Fav Detail Recipe Controller-->
         <scene sceneID="L3Q-87-Ly7">
             <objects>
-                <viewController id="KSb-N0-APJ" customClass="DetailRecipeController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KSb-N0-APJ" customClass="FavDetailRecipeController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="59v-9c-vFq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -392,7 +399,7 @@
                                     <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </state>
                                 <connections>
-                                    <action selector="didTapgetDirectionButton:" destination="KSb-N0-APJ" eventType="touchUpInside" id="30o-bX-NQg"/>
+                                    <action selector="getFavRecDir:" destination="KSb-N0-APJ" eventType="touchUpInside" id="EgB-X7-6c7"/>
                                 </connections>
                             </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nD3-Sd-AgJ">
@@ -443,10 +450,10 @@
                         <viewLayoutGuide key="safeArea" id="Vdm-7C-226"/>
                     </view>
                     <connections>
-                        <outlet property="recipeDirections" destination="xat-L3-hru" id="n5T-Wx-fI7"/>
-                        <outlet property="recipeImage" destination="JRt-V7-3BG" id="o9c-CZ-XiF"/>
-                        <outlet property="recipeTime" destination="VEo-aX-JZh" id="Y9x-w2-cf3"/>
-                        <outlet property="recipeTitle" destination="f7j-Pz-uGe" id="MeR-uE-4FB"/>
+                        <outlet property="favRecipeDirection" destination="xat-L3-hru" id="rs1-vH-Lyn"/>
+                        <outlet property="favRecipeImage" destination="JRt-V7-3BG" id="e5P-Ae-RSd"/>
+                        <outlet property="favRecipeTime" destination="VEo-aX-JZh" id="7N1-9g-mQv"/>
+                        <outlet property="favRecipeTitle" destination="f7j-Pz-uGe" id="kb3-vo-Wca"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="G3Y-Wg-UkF" userLabel="First Responder" sceneMemberID="firstResponder"/>

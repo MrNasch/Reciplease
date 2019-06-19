@@ -10,6 +10,10 @@ import UIKit
 
 class FavoriteRecipeCellTableViewCell: UITableViewCell {
 
+    @IBOutlet weak var recipeFavTime: UILabel!
+    @IBOutlet weak var recipeFavImage: UIImageView!
+    @IBOutlet weak var recipeDescription: UILabel!
+    @IBOutlet weak var recipeLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
