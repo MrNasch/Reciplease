@@ -9,10 +9,13 @@
 import UIKit
 import Alamofire
 import Kingfisher
+import CoreData
 
 class FavDetailRecipeController: UIViewController {
 
     var recipes: RecipeToSave!
+    var storage = RecipeStorageManager()
+    let favButton = UIBarButtonItem(title: "Remove favorite", style: .plain, target: self, action: #selector(removeFavTapped))
     
     @IBOutlet weak var favRecipeTime: UILabel!
     @IBOutlet weak var favRecipeTitle: UILabel!
@@ -21,7 +24,9 @@ class FavDetailRecipeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        navigationItem.rightBarButtonItem = favButton
         update()
+        
         // Do any additional setup after loading the view.
     }
     // update screen infos
@@ -38,11 +43,20 @@ class FavDetailRecipeController: UIViewController {
         favRecipeImage.kf.setImage(with: url)
     }
     
+    @objc func removeFavTapped() {
+        removeFromFav()
+        storage.save()
+    }
+    
     // sending user to Direction URL
     @IBAction func getFavRecDir(_ sender: UIButton) {
         guard let url = recipes.url else { return }
         UIApplication.shared.open(URL(string: "\(url)")!)
     }
     
-    
+    // Remove recipe from favorite
+    func removeFromFav() {
+        storage.remove(recipeID: recipes.objectID)
+        print("removed")
+    }
 }

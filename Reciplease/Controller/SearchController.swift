@@ -20,7 +20,7 @@ class SearchController: UIViewController {
     
     // Clear Ingredients text
     func clearIngredients() {
-        ingredientsText.text = " "
+        ingredientsText.text = ""
     }
     @IBAction func didTapClear(_ sender: UIButton) {
         clearIngredients()

@@ -9,6 +9,7 @@
 import UIKit
 import Alamofire
 import Kingfisher
+import CoreData
 
 class DetailRecipeController: UIViewController {
 
@@ -48,11 +49,6 @@ class DetailRecipeController: UIViewController {
     // Tapped fav button
     @objc func favTapped() {
         addToFav()
-        //        if isFavorite {
-//            favButton.title = "Remove from favorite"
-//        } else {
-//            addToFav()
-//        }
     }
     
     // Add recipe to Favorite
@@ -62,10 +58,5 @@ class DetailRecipeController: UIViewController {
         print("added fav")
 
         storage.save()
-    }
-    
-    // Remove recipe from favorite
-    func removeFromFav() {
-        
     }
 }

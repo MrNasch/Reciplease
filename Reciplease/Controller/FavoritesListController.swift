@@ -16,6 +16,7 @@ class FavoritesListController: UIViewController {
     var recipes: RecipeToSave!
     let request: NSFetchRequest<RecipeToSave> = RecipeToSave.fetchRequest()
     
+    
     @IBOutlet var tableView: UITableView!
     
     override func viewWillAppear(_ animated: Bool) {
@@ -26,8 +27,7 @@ class FavoritesListController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         // hidding empty cell
-        //tableView.tableFooterView = UIView()
-        // Do any additional setup after loading the view.
+        tableView.tableFooterView = UIView()
     }
 }
 extension FavoritesListController: UITableViewDataSource, UITableViewDelegate {
