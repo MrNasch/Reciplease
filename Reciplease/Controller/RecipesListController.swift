@@ -14,13 +14,11 @@ class RecipesListController: UIViewController {
     @IBOutlet var tableView: UITableView!
     
     var recipes: Recipes!
+    
     // reload tableViewData
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         tableView.reloadData()
-    }
-    override func viewDidLoad() {
-        super.viewDidLoad()
     }
 }
 extension RecipesListController: UITableViewDataSource, UITableViewDelegate {

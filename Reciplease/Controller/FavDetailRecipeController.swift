@@ -21,10 +21,28 @@ class FavDetailRecipeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        update()
         // Do any additional setup after loading the view.
     }
-    
-    @IBAction func getFavRecDir(_ sender: UIButton) {
+    // update screen infos
+    func update() {
+        guard let recipes = recipes else { return }
+        favRecipeTitle.text = recipes.label
+        guard let ingredients = recipes.ingredientLines else { return }
+        for ingredient in ingredients {
+            favRecipeDirection.text += "\(ingredient)"
+        }
+        favRecipeTime.text = String(recipes.totalTime)
+        guard let image = recipes.image else { return }
+        let url = URL(string: "\(String(describing: image))")
+        favRecipeImage.kf.setImage(with: url)
     }
+    
+    // sending user to Direction URL
+    @IBAction func getFavRecDir(_ sender: UIButton) {
+        guard let url = recipes.url else { return }
+        UIApplication.shared.open(URL(string: "\(url)")!)
+    }
+    
+    
 }
