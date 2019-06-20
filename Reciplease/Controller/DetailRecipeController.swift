@@ -21,10 +21,11 @@ class DetailRecipeController: UIViewController {
     var storage = RecipeStorageManager()
     var recipeDetail: Hit!
     var isFavorite: Bool = false
-    let favButton = UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(favTapped))
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        let favButton = UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(favTapped(_:)))
         navigationItem.rightBarButtonItem = favButton
         update()
     }
@@ -33,12 +34,11 @@ class DetailRecipeController: UIViewController {
         guard let recipeDetail = recipeDetail else { return }
         recipeTitle.text = recipeDetail.recipe.label
         for ingredient in recipeDetail.recipe.ingredientLines {
-            recipeDirections.text += "\n- \(ingredient)"
+            recipeDirections.text += "- \(ingredient)\n"
         }
         recipeTime.text = String(recipeDetail.recipe.totalTime)
         let url = URL(string: "\(recipeDetail.recipe.image)")
         recipeImage.kf.setImage(with: url)
-        addToFav()
     }
     
     // sending user to Direction URL
@@ -47,7 +47,7 @@ class DetailRecipeController: UIViewController {
     }
     
     // Tapped fav button
-    @objc func favTapped() {
+    @objc func favTapped(_ sender: Any!) {
         addToFav()
     }
     

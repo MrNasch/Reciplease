@@ -23,6 +23,7 @@ class FavoritesListController: UIViewController {
         super.viewWillAppear(animated)
         tableView.reloadData()
     }
+    // refresh fav list when back
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -34,14 +35,21 @@ extension FavoritesListController: UITableViewDataSource, UITableViewDelegate {
     // number of rows in section
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         
-        guard let recipesSaved = try? storage.backgroundContext.fetch(request) else { return 1 }
+        guard let recipesSaved = try? storage.backgroundContext.fetch(request) else { return 0 }
         
-        if tableView.numberOfSections <= 0 {
+        if recipesSaved.count == 0 {
             // hide tableView and present label TODO
-            alerts(title: "ERROR", message: "NO FAV")
+            let noDataLabel: UILabel  = UILabel(frame: CGRect(x: 0, y: 0, width: tableView.bounds.size.width, height: tableView.bounds.size.height))
+            noDataLabel.text          = "To add recipe go to the recipe direction \n and clic on the favorite button"
+            noDataLabel.numberOfLines = 0
+            noDataLabel.textColor     = UIColor.white
+            noDataLabel.textAlignment = .center
+            tableView.backgroundView  = noDataLabel
+            tableView.separatorStyle  = .none
             return 0
         } else {
         // table of recipes.count
+            tableView.backgroundView = nil
             return recipesSaved.count
         }
     }

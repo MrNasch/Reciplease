@@ -41,7 +41,7 @@ class SearchController: UIViewController {
         if ingredientSearchLabel.isEmpty {
             alerts(title: "Missing Ingredients", message: "No ingredients added")
         } else {
-            ingredientsText.text +=  "\n- \(ingredientSearchLabel)"
+            ingredientsText.text +=  "- \(ingredientSearchLabel)\n"
         }
     }
     

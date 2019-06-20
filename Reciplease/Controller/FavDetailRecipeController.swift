@@ -15,7 +15,7 @@ class FavDetailRecipeController: UIViewController {
 
     var recipes: RecipeToSave!
     var storage = RecipeStorageManager()
-    let favButton = UIBarButtonItem(title: "Remove favorite", style: .plain, target: self, action: #selector(removeFavTapped))
+    
     
     @IBOutlet weak var favRecipeTime: UILabel!
     @IBOutlet weak var favRecipeTitle: UILabel!
@@ -24,6 +24,8 @@ class FavDetailRecipeController: UIViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        let favButton = UIBarButtonItem(title: "Remove favorite", style: .plain, target: self, action: #selector(removeFavTapped(_:)))
         navigationItem.rightBarButtonItem = favButton
         update()
         
@@ -43,9 +45,8 @@ class FavDetailRecipeController: UIViewController {
         favRecipeImage.kf.setImage(with: url)
     }
     
-    @objc func removeFavTapped() {
+    @objc func removeFavTapped(_ sender: Any!) {
         removeFromFav()
-        storage.save()
     }
     
     // sending user to Direction URL
@@ -58,5 +59,6 @@ class FavDetailRecipeController: UIViewController {
     func removeFromFav() {
         storage.remove(recipeID: recipes.objectID)
         print("removed")
+        storage.save()
     }
 }
