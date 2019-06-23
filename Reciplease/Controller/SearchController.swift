@@ -54,10 +54,10 @@ class SearchController: UIViewController {
             let newListOfIngredients = listOfIngredients.replacingOccurrences(of: "\n ", with: " ")
             toggleActivityIndicator(shown: true)
             self.toggleActivityIndicator(shown: false)
-            recipe.getRecipes(query: newListOfIngredients) { recipes, error in
-                if let error = error {
-                    print(error)
-                    self.alerts(title: "OOPS", message: "Unable to get recipes")
+            recipe.getRecipes(query: newListOfIngredients) { [weak self] recipes, error in
+                guard let self = self else { return }
+                if error != nil {
+                    self.alerts(title: "Oops", message: "You reached the limit of request")
                 } else {
                     self.recipes = recipes
                     self.performSegue(withIdentifier: "segueToRecipeList", sender: nil)
