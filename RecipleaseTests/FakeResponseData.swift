@@ -13,7 +13,7 @@ class FakeResponseData {
     let responseKO = HTTPURLResponse(url: URL(string: "https://test.be")!, statusCode: 500, httpVersion: nil, headerFields: nil)
     
     class RecipesError: Error {}
-    let error = RecipesError()
+    static let error = RecipesError()
     
     
     var recipesCorrectData: Data {

@@ -347,10 +347,10 @@
             </objects>
             <point key="canvasLocation" x="3866.25" y="-401.40845070422534"/>
         </scene>
-        <!--Fav Detail Recipe Controller-->
+        <!--Detail Recipe Controller-->
         <scene sceneID="L3Q-87-Ly7">
             <objects>
-                <viewController id="KSb-N0-APJ" customClass="FavDetailRecipeController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="KSb-N0-APJ" customClass="DetailRecipeController" customModule="Reciplease" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="59v-9c-vFq">
                         <rect key="frame" x="0.0" y="0.0" width="414" height="725"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

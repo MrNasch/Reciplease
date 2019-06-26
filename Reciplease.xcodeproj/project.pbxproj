@@ -22,7 +22,6 @@
 		341FF35A2275D74000788AFE /* FavoritesListController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341FF3592275D74000788AFE /* FavoritesListController.swift */; };
 		341FF35C2275D91500788AFE /* DetailRecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 341FF35B2275D91500788AFE /* DetailRecipeController.swift */; };
 		34220DF522BB8EAB00B47046 /* CoreDataTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 34220DF422BB8EAB00B47046 /* CoreDataTests.swift */; };
-		3422CB1822BAA961004E3E71 /* FavDetailRecipeController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3422CB1722BAA961004E3E71 /* FavDetailRecipeController.swift */; };
 		3423F75222970E3700B2D19E /* RecipesService.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3423F75122970E3700B2D19E /* RecipesService.swift */; };
 		3426F6E722A5986700C6702F /* ApiKeys.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3426F6E622A5986700C6702F /* ApiKeys.plist */; };
 		3426F6E922A5990300C6702F /* .gitignore in Resources */ = {isa = PBXBuildFile; fileRef = 3426F6E822A5990300C6702F /* .gitignore */; };
@@ -73,7 +72,6 @@
 		341FF3592275D74000788AFE /* FavoritesListController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavoritesListController.swift; sourceTree = "<group>"; };
 		341FF35B2275D91500788AFE /* DetailRecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DetailRecipeController.swift; sourceTree = "<group>"; };
 		34220DF422BB8EAB00B47046 /* CoreDataTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataTests.swift; sourceTree = "<group>"; };
-		3422CB1722BAA961004E3E71 /* FavDetailRecipeController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FavDetailRecipeController.swift; sourceTree = "<group>"; };
 		3423F75122970E3700B2D19E /* RecipesService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesService.swift; sourceTree = "<group>"; };
 		3426F6E622A5986700C6702F /* ApiKeys.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = ApiKeys.plist; sourceTree = "<group>"; };
 		3426F6E822A5990300C6702F /* .gitignore */ = {isa = PBXFileReference; lastKnownFileType = text; path = .gitignore; sourceTree = "<group>"; };
@@ -204,7 +202,6 @@
 			isa = PBXGroup;
 			children = (
 				341FF3592275D74000788AFE /* FavoritesListController.swift */,
-				3422CB1722BAA961004E3E71 /* FavDetailRecipeController.swift */,
 				341AE4FF2273454C0046535C /* SearchController.swift */,
 				341FF3572275D64A00788AFE /* RecipesListController.swift */,
 				341FF35B2275D91500788AFE /* DetailRecipeController.swift */,
@@ -410,7 +407,6 @@
 				3426F6EB22A5992A00C6702F /* ApiKeys.swift in Sources */,
 				341AE5002273454C0046535C /* SearchController.swift in Sources */,
 				34312C1822788035006B4621 /* FavoriteRecipeCellTableViewCell.swift in Sources */,
-				3422CB1822BAA961004E3E71 /* FavDetailRecipeController.swift in Sources */,
 				341FF35C2275D91500788AFE /* DetailRecipeController.swift in Sources */,
 				3423F75222970E3700B2D19E /* RecipesService.swift in Sources */,
 				34312C16227877EE006B4621 /* RecipeCellTableViewCell.swift in Sources */,
