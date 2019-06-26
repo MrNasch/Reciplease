@@ -13,9 +13,7 @@ import UIKit
 class RecipeStorageManager {
     
     
-    lazy var backgroundContext: NSManagedObjectContext = {
-        return self.persistentContainer.newBackgroundContext()
-    }()
+    
     
     let persistentContainer: NSPersistentContainer!
     
@@ -31,6 +29,10 @@ class RecipeStorageManager {
         }
         self.init(container: appDelegate.persistentContainer)
     }
+    
+    lazy var backgroundContext: NSManagedObjectContext = {
+        return self.persistentContainer.newBackgroundContext()
+    }()
     
     func insertRecipe(label: String, url: String, image: String, ingredientLines: String, totalTime: Int ) -> RecipeToSave? {
         guard let recipe = NSEntityDescription.insertNewObject(forEntityName: "Recipe", into: backgroundContext) as? RecipeToSave else { return nil }
