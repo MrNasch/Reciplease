@@ -63,19 +63,3 @@ struct Recipe: Codable {
 }
 
 
-
-//
-// To parse values from Alamofire responses:
-//
-//   Alamofire.request(url).responseIngredient { response in
-//     if let ingredient = response.result.value {
-//       ...
-//     }
-//   }
-
-// MARK: - Ingredient
-struct Ingredient: Codable {
-    let text: String
-    let weight: Double
-}
-
