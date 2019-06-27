@@ -13,9 +13,12 @@ import XCTest
 class RecipleaseTests: XCTestCase {
     func testGivenGetRecipes_WhenGetFailed_ThenError() {
     //Given
+        var networkRequest: NetworkRequest = FakeNetworkRequest()
+        //USE NEWRECIPESERVICE CHANGE NETWORK TO FAKENETWORK
         let recipeService = FakeNetworkRequest(data: nil, error: FakeResponseData.error, statusCode: nil)
-    //When
         
+    //When
+
     //Then
     }
 

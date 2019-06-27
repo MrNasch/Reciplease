@@ -71,18 +71,17 @@ class DetailRecipeController: UIViewController {
     
     // Tapped fav button
     @objc func favTapped(_ sender: Any!) {
-        if isFavorite == true {
+        if isFavorite2 == true {
             removeFromFav()
-            isFavorite = false
         } else {
             addToFav()
-            isFavorite = true
+            navigationItem.rightBarButtonItem?.tintColor = .green
         }
     }
     
     // Add recipe to Favorite
     func addToFav() {
-        _ = storage.insertRecipe(label: recipeDetail.recipe.label,
+        recipes = storage.insertRecipe(label: recipeDetail.recipe.label,
                                  url: recipeDetail.recipe.url,
                                  image: recipeDetail.recipe.image,
                                  ingredientLines: recipeDirections.text,
@@ -98,4 +97,16 @@ class DetailRecipeController: UIViewController {
         storage.save()
         navigationController?.popViewController(animated: true)
     }
+    
+    var isFavorite2: Bool {
+        return storage.fetchAll().contains(where: { $0.url == self.recipeDetail.recipe.url })
+    }
 }
+
+// REVOYER UN RECIPETOSAVE EN HIT
+//extension RecipeToSave {
+//    func toHit() -> Hit {
+//        let hit  =
+//        return hit
+//    }
+//}

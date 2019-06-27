@@ -145,7 +145,6 @@ class CoreDataTests: XCTestCase {
     //Then
         XCTAssertNotNil(rec)
     }
-    
 
     func testFetch_Recipe_FromCore() {
         //Given
