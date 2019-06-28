@@ -87,8 +87,7 @@ extension FavoritesListController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "recipeFavDetail" {
             let favRecipeDetailVC = segue.destination as! DetailRecipeController
-            favRecipeDetailVC.recipes = sender as? RecipeToSave
-            favRecipeDetailVC.isFavorite = true
+            favRecipeDetailVC.recipeDetail = (sender as? RecipeToSave)?.toHit()
         }
     }
     // alerts

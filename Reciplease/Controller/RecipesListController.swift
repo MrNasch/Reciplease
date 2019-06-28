@@ -66,7 +66,6 @@ extension RecipesListController {
         if segue.identifier == "recipeToDetail" {
             let recipesDetailVC = segue.destination as! DetailRecipeController
             recipesDetailVC.recipeDetail = sender as? Hit
-            recipesDetailVC.isFavorite = false
         }
     }
     // alerts
