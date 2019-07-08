@@ -52,6 +52,7 @@ class DetailRecipeController: UIViewController {
     // Tapped fav button
     @objc func favTapped(_ sender: Any!) {
         if isFavorite == true {
+            print("favvv")
             //removeFromFav()
         } else {
             addToFav()
