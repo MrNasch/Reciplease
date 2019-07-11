@@ -9,21 +9,21 @@
 import Foundation
 
 class FakeResponseData {
-    let responseOK = HTTPURLResponse(url: URL(string: "https://test.be")!, statusCode: 200, httpVersion: nil, headerFields: nil)
-    let responseKO = HTTPURLResponse(url: URL(string: "https://test.be")!, statusCode: 500, httpVersion: nil, headerFields: nil)
+    static let responseOK = HTTPURLResponse(url: URL(string: "https://test.be")!, statusCode: 200, httpVersion: nil, headerFields: nil)
+    static let responseKO = HTTPURLResponse(url: URL(string: "https://test.be")!, statusCode: 500, httpVersion: nil, headerFields: nil)
     
     class RecipesError: Error {}
     static let error = RecipesError()
     
     
-    var recipesCorrectData: Data {
+    static var recipesCorrectData: Data {
         let bundle = Bundle(for: FakeResponseData.self)
         let url = bundle.url(forResource: "Recipes", withExtension: "json")
         let data = try! Data(contentsOf: url!)
         return data
     }
     // Error data
-    let recipesIncorrectData = "error".data(using: .utf8)!
-    let imageData = "image".data(using: .utf8)!
+    static let recipesIncorrectData = "error".data(using: .utf8)!
+    static let imageData = "image".data(using: .utf8)!
 }
 

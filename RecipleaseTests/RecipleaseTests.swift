@@ -11,20 +11,33 @@ import XCTest
 @testable import Reciplease
 
 class RecipleaseTests: XCTestCase {
-    func testGivenGetRecipes_WhenGetFailed_ThenError() {
+    func testGivenGetRecipes_WhenGetNoData_ThenError() {
     //Given
-        var networkRequest: NetworkRequest = FakeNetworkRequest()
+
         //USE NEWRECIPESERVICE CHANGE NETWORK TO FAKENETWORK
-        let recipeService = FakeNetworkRequest(data: nil, error: FakeResponseData.error, statusCode: nil)
+        //When
+        let fakeResponse = FakeNetworkRequest(data: nil, error: FakeResponseData.error, statusCode: 500)
         
-    //When
-
-    //Then
+        fakeResponse.request("chicken") { ( recipe: Recipe? , error: Error?) in
+            //Then
+            XCTAssertNil(recipe)
+            XCTAssertNotNil(error)
+            XCTAssertEqual(recipe?.label, nil)
+        }
     }
-
     
-    
-
-    
-    
+    func testGivenGetRecipes_WhenGetData_ThenNoError() {
+        //Given
+        
+        //USE NEWRECIPESERVICE CHANGE NETWORK TO FAKENETWORK
+        //When
+        let fakeResponse = FakeNetworkRequest(data: FakeResponseData.recipesCorrectData, error: nil, statusCode: 200)
+        
+        fakeResponse.request("chicken") { ( recipe: Recipe? , error: Error?) in
+            //Then
+            XCTAssertNotNil(recipe)
+            XCTAssertNil(error)
+            XCTAssertEqual(recipe?.label, "Chicken Vesuvio")
+        }
+    }
 }
