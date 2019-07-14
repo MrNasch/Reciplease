@@ -43,6 +43,36 @@ class RecipleaseTests: XCTestCase {
         wait(for: [expectation], timeout: 0.01)
     }
     
-    // 401, 200, incorectData
+    func testGivenGetRecipes_WhenGetCorrectData_ThenNoError() {
+        //Given
+        let recipeServices = NewRecipeService()
+        recipeServices.networkRequest = FakeNetworkRequest(data: FakeResponseData.recipesCorrectData, error: nil, statusCode: 200)
+        
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change")
+        recipeServices.getRecipes(query: "chicken") { (recipe, error) in
+            //then
+            XCTAssertNotNil(recipe)
+            XCTAssertNil(error)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
+    
+    func testGivenGetRecipes_WhenGetData_ThenIncorrectData() {
+        //Given
+        let recipeServices = NewRecipeService()
+        recipeServices.networkRequest = FakeNetworkRequest(data: FakeResponseData.recipesIncorrectData, error: nil, statusCode: 200)
+        
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change")
+        recipeServices.getRecipes(query: "chicken") { (recipe, error) in
+            //then
+            XCTAssertNil(recipe)
+            XCTAssertNotNil(error)
+            expectation.fulfill()
+        }
+        wait(for: [expectation], timeout: 0.01)
+    }
     
 }
