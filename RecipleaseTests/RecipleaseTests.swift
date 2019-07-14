@@ -11,33 +11,38 @@ import XCTest
 @testable import Reciplease
 
 class RecipleaseTests: XCTestCase {
+    
     func testGivenGetRecipes_WhenGetNoData_ThenError() {
-    //Given
-
-        //USE NEWRECIPESERVICE CHANGE NETWORK TO FAKENETWORK
-        //When
-        let fakeResponse = FakeNetworkRequest(data: nil, error: FakeResponseData.error, statusCode: 500)
+        //Given
+        let recipeServices = NewRecipeService()
+        recipeServices.networkRequest = FakeNetworkRequest(data: nil, error: FakeResponseData.error, statusCode: 500)
         
-        fakeResponse.request("chicken") { ( recipe: Recipe? , error: Error?) in
-            //Then
+        //When
+        let expectation = XCTestExpectation(description: "Wait for queue change")
+        recipeServices.getRecipes(query: "chicken") { (recipe, error) in
+            //then
             XCTAssertNil(recipe)
             XCTAssertNotNil(error)
-            XCTAssertEqual(recipe?.label, nil)
+            expectation.fulfill()
         }
+        wait(for: [expectation], timeout: 0.01)
     }
     
-    func testGivenGetRecipes_WhenGetData_ThenNoError() {
+    func testGivenGetRecipes_WhenGetData5TimesIn1Min_ThenError() {
         //Given
+        let recipeServices = NewRecipeService()
+        recipeServices.networkRequest = FakeNetworkRequest(data: nil, error: nil, statusCode: 401)
         
-        //USE NEWRECIPESERVICE CHANGE NETWORK TO FAKENETWORK
         //When
-        let fakeResponse = FakeNetworkRequest(data: FakeResponseData.recipesCorrectData, error: nil, statusCode: 200)
-        
-        fakeResponse.request("chicken") { ( recipe: Recipe? , error: Error?) in
-            //Then
-            XCTAssertNotNil(recipe)
-            XCTAssertNil(error)
-            XCTAssertEqual(recipe?.label, "Chicken Vesuvio")
+        let expectation = XCTestExpectation(description: "Wait for queue change")
+        recipeServices.getRecipes(query: "chicken") { (recipe, error) in
+            //then
+            XCTAssertNil(recipe)
+            expectation.fulfill()
         }
+        wait(for: [expectation], timeout: 0.01)
     }
+    
+    // 401, 200, incorectData
+    
 }

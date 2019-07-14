@@ -12,7 +12,7 @@ import Kingfisher
 import CoreData
 
 class DetailRecipeController: UIViewController {
-
+    
     @IBOutlet weak var recipeDirections: UITextView!
     @IBOutlet weak var recipeTime: UILabel!
     @IBOutlet weak var recipeImage: UIImageView!
@@ -21,19 +21,33 @@ class DetailRecipeController: UIViewController {
     var storage = RecipeStorageManager()
     var recipeDetail: Hit!
     var recipe: RecipeToSave?
-    
+    let request: NSFetchRequest<RecipeToSave> = RecipeToSave.fetchRequest()
     var isFavorite: Bool {
         return storage.fetchAll().contains(where: { $0.url == self.recipeDetail.recipe.url })
     }
-    let request: NSFetchRequest<RecipeToSave> = RecipeToSave.fetchRequest()
-    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        let favButton = UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(favTapped(_:)))
-        navigationItem.rightBarButtonItem = favButton
+        
+        recipe = storage.fetchAll().first(where: { $0.url == self.recipeDetail.recipe.url })
+        
+        updateFromFavoriteStatus()
         update()
     }
+    
+    // Update favorite button
+    func updateFromFavoriteStatus() {
+        if isFavorite {
+            let favButton = UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(favTapped(_:)))
+            favButton.tintColor = .green
+            navigationItem.rightBarButtonItem = favButton
+        } else {
+            let favButton = UIBarButtonItem(title: "Favorite", style: .plain, target: self, action: #selector(favTapped(_:)))
+            navigationItem.rightBarButtonItem = favButton
+        }
+    }
+    
+    // update data
     func update() {
         guard let recipeDetail = recipeDetail else { return }
         recipeTitle.text = recipeDetail.recipe.label
@@ -52,26 +66,26 @@ class DetailRecipeController: UIViewController {
     
     // Tapped fav button
     @objc func favTapped(_ sender: Any!) {
-        if isFavorite == true {
-            print("favvv")
+        if isFavorite {
             removeFromFav()
         } else {
             addToFav()
-            navigationItem.rightBarButtonItem?.tintColor = .green
         }
+        updateFromFavoriteStatus()
     }
     
     // Add recipe to Favorite
     func addToFav() {
         recipe = storage.insertRecipe(label: recipeDetail.recipe.label,
-                                 url: recipeDetail.recipe.url,
-                                 image: recipeDetail.recipe.image,
-                                 ingredientLines: recipeDirections.text,
-                                 totalTime: recipeDetail.recipe.totalTime)
+                                      url: recipeDetail.recipe.url,
+                                      image: recipeDetail.recipe.image,
+                                      ingredientLines: recipeDirections.text,
+                                      totalTime: recipeDetail.recipe.totalTime)
         print("added fav")
-
+        
         storage.save()
     }
+    
     // Remove recipe from favorite
     func removeFromFav() {
         guard let recipe = recipe else { return }
@@ -80,6 +94,4 @@ class DetailRecipeController: UIViewController {
         storage.save()
         navigationController?.popViewController(animated: true)
     }
-    
-    
 }

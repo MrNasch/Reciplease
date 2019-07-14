@@ -38,10 +38,6 @@ struct Recipes: Codable {
 // MARK: - Hit
 struct Hit: Codable {
     let recipe: Recipe
-    
-    init(recipe: Recipe) {
-        self.recipe = recipe
-    }
 }
 
 //
