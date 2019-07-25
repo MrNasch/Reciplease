@@ -29,11 +29,11 @@ class RecipeStorageManager {
         }
         self.init(container: appDelegate.persistentContainer)
     }
-    
+    //background context
     lazy var backgroundContext: NSManagedObjectContext = {
         return self.persistentContainer.newBackgroundContext()
     }()
-    
+    // insert into storage
     func insertRecipe(label: String, url: String, image: String, ingredientLines: String, totalTime: Int ) -> RecipeToSave? {
         guard let recipe = NSEntityDescription.insertNewObject(forEntityName: "Recipe", into: backgroundContext) as? RecipeToSave else { return nil }
         recipe.label = label
@@ -43,18 +43,18 @@ class RecipeStorageManager {
         recipe.url = url
         return recipe
     }
-    
+    //fetch
     func fetchAll() -> [RecipeToSave] {
         let request: NSFetchRequest<RecipeToSave> = RecipeToSave.fetchRequest()
         let results = try? persistentContainer.viewContext.fetch(request)
         return results ?? [RecipeToSave]()
     }
-    
+    //remove
     func remove(recipeID: NSManagedObjectID) {
         let rec = backgroundContext.object(with: recipeID)
         backgroundContext.delete(rec)
     }
-    
+    //save
     func save() {
         if backgroundContext.hasChanges {
             do {

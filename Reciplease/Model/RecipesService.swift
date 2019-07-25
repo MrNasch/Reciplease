@@ -12,7 +12,7 @@ import Alamofire
 protocol NetworkRequest {
     func request<Model: Codable>(_ url: String, completion: @escaping (Model?, Error?) -> Void)
 }
-
+// Alamofire Request
 struct AlamofireNetworkRequest: NetworkRequest {
     func request<Model: Codable>(_ url: String, completion: @escaping (Model?, Error?) -> Void) {
         AF.request(url).responseDecodable { (response: DataResponse<Model>) in
@@ -35,7 +35,7 @@ struct AlamofireNetworkRequest: NetworkRequest {
         }
     }
 }
-
+// fake request for tests
 struct FakeNetworkRequest: NetworkRequest {
     
     var data: Data?
@@ -63,7 +63,7 @@ struct FakeNetworkRequest: NetworkRequest {
         }
     }
 }
-
+// RecipesServices
 class NewRecipeService {
     let apiKey = valueForAPIKey(named: "ApiKey")
     let apiId = valueForAPIKey(named: "ApiId")

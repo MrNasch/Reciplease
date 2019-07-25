@@ -68,7 +68,6 @@ class SearchController: UIViewController {
     }
 }
 extension SearchController {
-    // ACTIVITY
     // Segue to RecipeList
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "segueToRecipeList" {

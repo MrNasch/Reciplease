@@ -12,7 +12,7 @@ import CoreData
 
 extension RecipeToSave {
     
-    
+    // transform recipeToSave to Hit
     func toHit() -> Hit {
         
         let hit = Hit(recipe: Recipe(label: label ?? "" , image: image ?? "", url: url ?? "", cautions: [], ingredientLines: [ingredientLines ?? ""], totalTime: Int(totalTime )))
